@@ -1,5 +1,8 @@
 # TypeScript
 
+Web画面で試せる
+https://www.typescriptlang.org/play/
+
 ## get
 
 get/set アクセサー
