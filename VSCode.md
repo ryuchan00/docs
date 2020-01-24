@@ -27,3 +27,7 @@ fi
 ```
 
 `"terminal.integrated.inheritEnv": false` で環境を受け継ぐことをやめさせることができた。
+
+## 参考資料
+
+[VS Codeのサイドバーの表示をキーボードで切り替えるには：Visual Studio Code TIPS - ＠IT](https://www.atmarkit.co.jp/ait/articles/1807/13/news032.html)
