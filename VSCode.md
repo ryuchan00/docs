@@ -31,3 +31,7 @@ fi
 ## 参考資料
 
 [VS Codeのサイドバーの表示をキーボードで切り替えるには：Visual Studio Code TIPS - ＠IT](https://www.atmarkit.co.jp/ait/articles/1807/13/news032.html)
+サイドバーを閉じるには command + b
+
+[VSCodeでコード整形ツール(Fomatter)を使用する - Qiita](https://qiita.com/mgmgOmO/items/17438d45790635bd8dca)
+コード整形は、shift + option + f
