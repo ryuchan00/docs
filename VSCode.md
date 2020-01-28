@@ -28,7 +28,7 @@ fi
 
 `"terminal.integrated.inheritEnv": false` で環境を受け継ぐことをやめさせることができた。
 
-## 参考資料
+## ショートカットキー参考文献
 
 [VS Codeのサイドバーの表示をキーボードで切り替えるには：Visual Studio Code TIPS - ＠IT](https://www.atmarkit.co.jp/ait/articles/1807/13/news032.html)
 
@@ -37,3 +37,9 @@ fi
 [VSCodeでコード整形ツール(Fomatter)を使用する - Qiita](https://qiita.com/mgmgOmO/items/17438d45790635bd8dca)
 
 コード整形は、shift + option + f
+
+## Scrach file の作り方
+
+untitleなnew fileを作成すれば、それがscrach fileになるとのこと。
+
+[Ability to add scratch files in vscode 🔥 · Issue #60377 · microsoft/vscode](https://github.com/Microsoft/vscode/issues/60377)
