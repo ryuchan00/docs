@@ -43,3 +43,13 @@ fi
 untitleなnew fileを作成すれば、それがscrach fileになるとのこと。
 
 [Ability to add scratch files in vscode 🔥 · Issue #60377 · microsoft/vscode](https://github.com/Microsoft/vscode/issues/60377)
+
+## AutoSave
+
+VSCodeは、手動保存しないとファイルが保存されない。なので自動保存の設定をsettings.jsonに付け足す。`afterDelay`にするとデフォルトで1000ms後に保存する事になる。
+
+```json
+"files.autoSave": "afterDelay"
+```
+
+[Basic Editing in Visual Studio Code](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)
