@@ -50,3 +50,13 @@ if (employee.fullName) {
     console.log(employee.fullName);
 }
 ```
+
+## タイトルバーにプロジェクトルートからのパスを表示させる
+
+settings.jsonを以下のように編集する
+
+```json
+"window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
+```
+
+[VSCodeでタイトルにパスを表示してわかりやすくする - Qiita](https://qiita.com/akisx/items/08313fd5b47b5a45bb2f)
