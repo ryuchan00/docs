@@ -70,3 +70,13 @@ settings.jsonを以下のように編集する
 ```
 
 [How can I switch word wrap on and off in Visual Studio Code? - Stack Overflow](https://stackoverflow.com/questions/31025502/how-can-i-switch-word-wrap-on-and-off-in-visual-studio-code)
+
+## 保存時に行末尾の空白を自動で消す
+
+settings.jsonを以下のように編集する
+
+```json
+"files.trimTrailingWhitespace": true,
+```
+
+[Visual Studio Codeで保存時に行末尾の空白を自動で消す - Qiita](https://qiita.com/iwata-n/items/39dc0e4391277589878b)
