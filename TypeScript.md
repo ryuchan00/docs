@@ -60,3 +60,13 @@ settings.jsonを以下のように編集する
 ```
 
 [VSCodeでタイトルにパスを表示してわかりやすくする - Qiita](https://qiita.com/akisx/items/08313fd5b47b5a45bb2f)
+
+## ソフトラップ状態で表示する
+
+settings.jsonを以下のように編集する
+
+```json
+"editor.wordWrap": "on" 
+```
+
+[How can I switch word wrap on and off in Visual Studio Code? - Stack Overflow](https://stackoverflow.com/questions/31025502/how-can-i-switch-word-wrap-on-and-off-in-visual-studio-code)
