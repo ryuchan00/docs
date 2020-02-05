@@ -33,3 +33,11 @@ hoge(1, 2, 3)
 ```
 
 [Ruby :: メソッド引数のアスタリスクの意味 [Tipsというかメモ]](http://tm.root-n.com/programming:ruby:etc:parameter_asterisk)
+
+## Rangeオブジェクト
+
+1から100を繰り返すには以下のように書く
+
+```ruby
+(1..100).each do {|i| p i}
+```
