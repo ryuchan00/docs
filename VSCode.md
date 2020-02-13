@@ -53,3 +53,11 @@ VSCodeは、手動保存しないとファイルが保存されない。なの�
 ```
 
 [Basic Editing in Visual Studio Code](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save)
+
+## ファイルオープン時に新しいタブで開く
+
+```json
+"workbench.editor.enablePreview": false
+```
+
+[VSCodeでファイルを開いた時にタブが上書きされる問題を回避する - Qiita](https://qiita.com/kgoto/items/265e3eb8a82778e33cfe)
