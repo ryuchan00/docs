@@ -61,3 +61,9 @@ VSCodeは、手動保存しないとファイルが保存されない。なの�
 ```
 
 [VSCodeでファイルを開いた時にタブが上書きされる問題を回避する - Qiita](https://qiita.com/kgoto/items/265e3eb8a82778e33cfe)
+
+## ファイル名検索
+
+Macの場合は command + p
+
+[Visual Studio Code チートシート - Qiita](https://qiita.com/aoinu/items/681f932ce0b162cd9520#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89)
