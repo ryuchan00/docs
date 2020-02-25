@@ -67,3 +67,7 @@ VSCodeは、手動保存しないとファイルが保存されない。なの�
 Macの場合は command + p
 
 [Visual Studio Code チートシート - Qiita](https://qiita.com/aoinu/items/681f932ce0b162cd9520#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89)
+
+## カーソル行を削除する
+
+shift + command + k
