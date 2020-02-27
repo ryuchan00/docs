@@ -10,3 +10,6 @@ ls -l | cut -d ' ' -f -4
 
 [awk で指定した n カラム目以降を出力する](https://blog.cles.jp/item/8437)
 
+## tmuxでペインレイアウトを変更する
+
+[tmuxでペインレイアウトを変更する - Qiita](https://qiita.com/tortuepin/items/1acbc7b0e749189a33b9)
