@@ -46,9 +46,9 @@ hoge(1, 2, 3)
 
 Gemをデプロイしたいけど方法を忘れていたのでメモ
 
-```
+```bash
 # RubyGemsへログインする
-❯ curl -u [username] https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials; chmod 0600 ~/.gem/credentials 
-❯ rake build
-❯ rake release
+curl -u [username] https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials; chmod 0600 ~/.gem/credentials 
+rake build
+rake release
 ```
