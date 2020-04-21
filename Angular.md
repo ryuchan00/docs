@@ -1,3 +1,5 @@
+# Angular
+
 ## nodenvのインストール
 
 今回brewでインストールされたnode-buildではnodeの最新版が取得できなかったのでnode-buildは手動で入れた。
@@ -25,3 +27,7 @@ https://v5.material.angular.io/
 ## Angularの日本語公式ドキュメント
 
 https://angular.jp/
+
+## Angularチュートリアルを終わらせた人がやるやつ
+
+[イントロダクション - Angular After Tutorial](https://gitbook.lacolaco.net/angular-after-tutorial/season-2-effective-rxjs/introduction)
