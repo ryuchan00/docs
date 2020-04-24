@@ -80,3 +80,19 @@ settings.jsonを以下のように編集する
 ```
 
 [Visual Studio Codeで保存時に行末尾の空白を自動で消す - Qiita](https://qiita.com/iwata-n/items/39dc0e4391277589878b)
+
+## 配列内の連想配列の型
+
+```typescript
+interface Shop {
+    id: number,
+    name: staring
+}
+
+interface Customer {
+    id: number,
+    shops: Array<Shop>;
+}
+```
+
+[TypeScript - TypeScriptの配列内の連想配列の型づけ｜teratail](https://teratail.com/questions/166229)
