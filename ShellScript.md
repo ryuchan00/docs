@@ -22,3 +22,13 @@ ls -l | cut -d ' ' -f -4
 mkdir -p ~/zsh_history_backup 2>/dev/null
 cp -p ~/.zsh_history ~/zsh_history_backup/zsh_history_`date "+%Y%m%d"`
 ```
+
+## 複数のファイルをまとめて、1つのファイルにする
+
+hoge.txtとfuga.txtをbar.txtというファイルにまとめる
+
+```sh
+cat hoge.txt fuga.txt > bar.txt
+```
+
+[【 複数ファイルをつなげて，1つのファイルにする 】 | 日経クロステック（xTECH）](https://xtech.nikkei.com/it/article/COLUMN/20060228/231150/)
