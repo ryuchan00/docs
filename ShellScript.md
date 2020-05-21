@@ -13,3 +13,12 @@ ls -l | cut -d ' ' -f -4
 ## tmuxでペインレイアウトを変更する
 
 [tmuxでペインレイアウトを変更する - Qiita](https://qiita.com/tortuepin/items/1acbc7b0e749189a33b9)
+
+## zsh_historyのバックアップを取る
+
+```
+#!/bin/bash
+# エラーは捨てる
+mkdir -p ~/zsh_history_backup 2>/dev/null
+cp -p ~/.zsh_history ~/zsh_history_backup/zsh_history_`date "+%Y%m%d"`
+```
