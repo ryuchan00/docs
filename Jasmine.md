@@ -33,3 +33,18 @@ pendingまたは `x` をつける
 ```
 
 [introduction.js](https://jasmine.github.io/2.0/introduction#section-Pending_Specs)
+
+## メソッドが呼び出されているかテストする
+
+```ts
+beforeEach() => {
+	spyOn("テストしたいオブジェクト", '"テストしたいメソッドの文字列"');
+	user.register;  // テストしたいメソッドが呼び出されている処理をここで実行してしまう
+}));
+it("should call", () => {
+	// validメソッドが呼び出されているか
+	expect(user.valid).toHaveBeenCalled();
+});
+```
+
+[JasmineのSpy機能でテストダブルを作成する - Build Insider](https://www.buildinsider.net/web/bookjslib111/109)
