@@ -52,3 +52,16 @@ curl -u [username] https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials
 rake build
 rake release
 ```
+
+## with_index
+
+`map` と組み合わせることによって、ハッシュが要素の配列が簡単に作れたりする
+
+```
+hoge.map.with_index do |v,k|
+    {value: v,key: k}
+end
+# [{value: v,key: k},{value: v,key: k}...]
+```
+
+[Enumerator#with_index (Ruby 2.7.0 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Enumerator/i/with_index.html)
