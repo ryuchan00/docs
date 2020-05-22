@@ -71,3 +71,31 @@ Macの場合は command + p
 ## カーソル行を削除する
 
 shift + command + k
+
+## タイトルバーにプロジェクトルートからのパスを表示させる
+
+settings.jsonを以下のように編集する
+
+```json
+"window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
+```
+
+[VSCodeでタイトルにパスを表示してわかりやすくする - Qiita](https://qiita.com/akisx/items/08313fd5b47b5a45bb2f)
+
+## ソフトラップ状態で表示する
+
+settings.jsonを以下のように編集する
+
+```json
+"editor.wordWrap": "on" 
+```
+
+[How can I switch word wrap on and off in Visual Studio Code? - Stack Overflow](https://stackoverflow.com/questions/31025502/how-can-i-switch-word-wrap-on-and-off-in-visual-studio-code)
+
+## 保存時に行末尾の空白を自動で消す
+
+settings.jsonを以下のように編集する
+
+```json
+"files.trimTrailingWhitespace": true,
+```
