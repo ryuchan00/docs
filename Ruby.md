@@ -83,3 +83,7 @@ puts 'SHA512: ' + Digest::SHA512.hexdigest(plain_text)
 ```
 
 [【Ruby】文字列のハッシュ値を取得(SHA, MD5, RMD160) - Qiita](https://qiita.com/kou_pg_0131/items/ad7a0fdd7b0a997cd5f4)
+
+詳しい仕様は、Rubyのlibrary digestを参照する。
+
+[library digest (Ruby 2.7.0 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/library/digest.html)
