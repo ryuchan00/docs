@@ -57,7 +57,7 @@ rake release
 
 `map` と組み合わせることによって、ハッシュが要素の配列が簡単に作れたりする
 
-```
+```ruby
 hoge.map.with_index do |v,k|
     {value: v,key: k}
 end
@@ -65,3 +65,21 @@ end
 ```
 
 [Enumerator#with_index (Ruby 2.7.0 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Enumerator/i/with_index.html)
+
+## ハッシュ値を生成する
+
+```ruby
+require 'digest'
+
+plain_text = 'password'
+
+puts 'MD5:    ' + Digest::MD5.hexdigest(plain_text)
+puts 'RMD160: ' + Digest::RMD160.hexdigest(plain_text)
+puts 'SHA1:   ' + Digest::SHA1.hexdigest(plain_text)
+puts 'SHA256: ' + Digest::SHA256.hexdigest(plain_text)
+puts 'SHA384: ' + Digest::SHA384.hexdigest(plain_text)
+puts 'SHA512: ' + Digest::SHA512.hexdigest(plain_text)
+
+```
+
+[【Ruby】文字列のハッシュ値を取得(SHA, MD5, RMD160) - Qiita](https://qiita.com/kou_pg_0131/items/ad7a0fdd7b0a997cd5f4)
