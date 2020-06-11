@@ -39,4 +39,14 @@ cat hoge.txt fuga.txt > bar.txt
 
 `zgrep` を使用する。 `grep` だとうまくいかないので注意する。
 
-## 複数のファイルをまとめて、1つのファイルにする
+## 画像に文字を入れる
+
+画像のテストをしたいときに使用する。ImageMagicを使用して作成する。
+
+1200x1200の画像で、真ん中に「Dummy」文字列を挿入する例、色はカラーコードも使用可能。
+
+```sh
+convert -size 1200x1200 -gravity center -font AndaleMono -fill blue -background gray -pointsize 64 label:Dummy 1200x1200_dummy.jpg
+```
+
+[ImageMagickで画像に文字を描画 – エラーの向こうへ](https://tech.mktime.com/entry/145)
