@@ -99,3 +99,12 @@ settings.jsonを以下のように編集する
 ```json
 "files.trimTrailingWhitespace": true,
 ```
+
+## 範囲を選択してコード整形を行う
+
+> 整形したい範囲を選択して、
+Cmd + K → Cmd + F
+
+これで選択した範囲のみ整形される。
+
+[Visual Studio Code + mac で非常に良く使うショートカット - Qiita](https://qiita.com/matsuyoro/items/bbf7ef7eb9f36b65cd27)
