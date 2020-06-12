@@ -68,3 +68,9 @@ interface Customer {
 ```
 
 [TypeScript - TypeScriptの配列内の連想配列の型づけ｜teratail](https://teratail.com/questions/166229)
+
+## " should be ' (quotemark)
+
+tslintでエラーが出た。文字列はダブルクォートではなくシングルクォートで囲むこと。
+
+[[TypeScript][tslint] " should be ' (quotemark)](http://www.curict.com/item/71/71aa0a9.html)
