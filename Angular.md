@@ -37,7 +37,7 @@ https://angular.jp/
 今回やったのはcookieの値を取得すること。
 
 ```sh
-# ngx-cookie-service を使用する
+# Angularでcookieを処理する時に使用するAngularngx-cookie-service を使用する
 npm install ngx-cookie-service --save
 ```
 
@@ -63,3 +63,7 @@ export class HogeInterceptor implemnts HttpInterceptor {
 ```
 
 [Angular 5でcookieを利用する - Qiita](https://qiita.com/second113/items/754cf6b63bfe89702dce)
+
+[ngx-cookie-service - npm](https://www.npmjs.com/package/ngx-cookie-service)
+
+[Angular 9— How to use cookies - ITNEXT](https://itnext.io/angular-8-how-to-use-cookies-14ab3f2e93fc)
