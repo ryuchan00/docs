@@ -31,3 +31,35 @@ https://angular.jp/
 ## Angularチュートリアルを終わらせた人がやるやつ
 
 [イントロダクション - Angular After Tutorial](https://gitbook.lacolaco.net/angular-after-tutorial/season-2-effective-rxjs/introduction)
+
+## Angularでcookieを利用する
+
+今回やったのはcookieの値を取得すること。
+
+```sh
+# ngx-cookie-service を使用する
+npm install ngx-cookie-service --save
+```
+
+app.module.ts
+
+```ts
+import { CookieService } from 'ngx-cookie-service';
+// ...
+  providers: [CookieService ],
+// ...
+```
+
+利用するコンポーネントでもimportする。僕は今回はIntercptorクラスに追加した。
+
+```ts
+import { CookieService } from 'ngx-cookie-service';
+
+export class HogeInterceptor implemnts HttpInterceptor {
+  constructor(private cookieService: CookieService) {}
+  const token = this.cookieService.get('CSRF-TOKEN');
+  console.log(token)  // 'token string....'
+}
+```
+
+[Angular 5でcookieを利用する - Qiita](https://qiita.com/second113/items/754cf6b63bfe89702dce)
