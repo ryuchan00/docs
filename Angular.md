@@ -67,3 +67,9 @@ export class HogeInterceptor implemnts HttpInterceptor {
 [ngx-cookie-service - npm](https://www.npmjs.com/package/ngx-cookie-service)
 
 [Angular 9— How to use cookies - ITNEXT](https://itnext.io/angular-8-how-to-use-cookies-14ab3f2e93fc)
+
+## HttpClientXsrfModuleが動かない
+
+CSRFの
+
+[HttpClientXsrfModuleで設定したヘッダがリクエストに反映されない - トラブルシューティング - Discourse | Angular Japan User Group](https://angular-japan.discourse.group/t/topic/105)
