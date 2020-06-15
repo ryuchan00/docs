@@ -53,3 +53,13 @@ person.pets.count # => 0 # count from database
 ```
 
 https://api.rubyonrails.org/classes/ActiveRecord/Associations/CollectionProxy.html#method-i-build
+
+## CSRFの方法
+
+CSRFの対策を有効にするには、 `protect_from_forgery` メソッドをcontrollerに書く。 `with:` オプションはCSRFトークンがinvalidだった場合に呼ぶメソッドである。下記の場合は、例外をあげるようにする。何も書かないと例外を上げずに終わるので注意すること。
+
+```rb
+protect_from_forgery with: :exception
+```
+
+[Rails セキュリティガイド - Railsガイド](https://railsguides.jp/security.html#csrf%E3%81%B8%E3%81%AE%E5%AF%BE%E5%BF%9C%E7%AD%96)
