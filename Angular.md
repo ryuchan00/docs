@@ -70,6 +70,6 @@ export class HogeInterceptor implemnts HttpInterceptor {
 
 ## HttpClientXsrfModuleが動かない
 
-CSRFの
+CSRFの回避のためにCSRFトークンをクッキーからHTTPヘッダーに付与しようとしたが、HTTPヘッダーにCSRFトークンがなかった。原因はHTTPリクエストを絶対パスで行なっているためである。相対パスで行なった場合のみHttpClientXsrfModuleが機能する。これは、同一のドメインでないとダメということを暗黙的に表現しているのだろうか？
 
 [HttpClientXsrfModuleで設定したヘッダがリクエストに反映されない - トラブルシューティング - Discourse | Angular Japan User Group](https://angular-japan.discourse.group/t/topic/105)
