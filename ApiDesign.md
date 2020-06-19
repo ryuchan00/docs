@@ -25,6 +25,20 @@ APIの設計やOpenAPIの情報を残す。
       - 3
 ```
 
+### パスにパラメーターを含めるとき
+
+```
+paths:
+  /ping:
+    ...
+  /users:
+    ...
+  /users/{id}:
+    ...
+```
+
+[Paths and Operations](https://swagger.io/docs/specification/paths-and-operations/)
+
 ## DELTEメソッドについて
 
 返却するステータスコードは `204` 、No Contentである。つまり何も返さない。
