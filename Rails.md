@@ -63,3 +63,18 @@ protect_from_forgery with: :exception
 ```
 
 [Rails セキュリティガイド - Railsガイド](https://railsguides.jp/security.html#csrf%E3%81%B8%E3%81%AE%E5%AF%BE%E5%BF%9C%E7%AD%96)
+
+## findとfind_byの戻り値の違い
+
+- `.find` はレコードが見つからない場合には例外を返す
+- `.find_by` はレコードが見つからない場合はnilを返す
+
+挙動の違いがあるのでエラーハンドリングに注意すること。
+
+[【Rails】find・find_by・whereについてまとめてみた - Qiita](https://qiita.com/nakayuu07/items/3d5e2f8784b6f18186f2)
+
+## リソースのまとめて削除
+
+`destroy_all` メソッドを使用する。
+
+[ActiveRecordにおけるdestroyとdestroy!の違い - Qiita](https://qiita.com/jnchito/items/3393c5c1a744199e128a)
