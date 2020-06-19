@@ -10,9 +10,43 @@ APIの設計やOpenAPIの情報を残す。
 
 [Data Types](https://swagger.io/docs/specification/data-models/data-types/)
 
-### DELTEメソッドについて
+### type: array
 
-DELETEメソッドは、リクエストボディは許可されていない。代替策としては、いくつかあるが僕の目に留まったものだけをあげる。
+`items:` を忘れないこと。
+
+```
+  ids:
+    type: array
+    items:
+      type: integer
+    example:
+      - 1
+      - 2
+      - 3
+```
+
+## DELTEメソッドについて
+
+返却するステータスコードは `204` 、No Contentである。つまり何も返さない。
+
+OpenAPIのリポジトリでも、DELTEメソッドはリクエストボディを許可してないとある。
+
+[Allow requestBody for the DELETE method. · Issue #1801 · OAI/OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification/issues/1801)
+
+### 一括削除について
+
+リソースを一括で削除するときは、DELETEメソッドを使用しない方が良い。理由はREST FulなAPIはDELETEメソッドを使用するときは単一のリソースの削除という決まりがある。加えて削除対象の `ids` をまとめて受け取るすべがないというのもある。この辺はRFC7231に定義されている。
+
+>    A payload within a DELETE request message has no defined semantics;
+   sending a payload body on a DELETE request might cause some existing
+   implementations to reject the request.
+  
+
+[Swagger openApi Spec 3.0 - DELETE opeartion - Stack Overflow](https://stackoverflow.com/questions/54939681/swagger-openapi-spec-3-0-delete-opeartion)
+
+[RFC 7231 - Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content](https://tools.ietf.org/html/rfc7231#section-4.3)
+
+DELETEメソッドは、リクエストボディは許可されていないので、代替策としては、いくつかあるが僕の目に留まったものだけをあげる。
 
 - MessageBodyに入れ込む
 - カスタムHTTPヘッダーに入れる
@@ -21,9 +55,11 @@ DELETEメソッドは、リクエストボディは許可されていない。�
 
 [http - RESTful Alternatives to DELETE Request Body - Stack Overflow](https://stackoverflow.com/questions/14323716/restful-alternatives-to-delete-request-body)
 
-OpenAPIのリポジトリでも、DELTEメソッドはリクエストボディを許可してないとある。
+POSTメソッドにして解決する場合は、エンドポイントを `batch_delete` `batchDelete` `delete_batch` などにすると良い。
 
-[Allow requestBody for the DELETE method. · Issue #1801 · OAI/OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification/issues/1801)
+[Users.messages: batchDelete  |  Gmail API  |  Google Developers](https://developers.google.com/gmail/api/v1/reference/users/messages/batchDelete)
+
+[HTTP - Developers - Dropbox](https://www.dropbox.com/developers/documentation/http/documentation#files-delete_batch)
 
 ## 参考になる資料
 
