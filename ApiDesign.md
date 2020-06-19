@@ -43,6 +43,8 @@ paths:
 
 返却するステータスコードは `204` 、No Contentである。つまり何も返さない。
 
+[204 No Content - HTTP | MDN](https://developer.mozilla.org/ja/docs/Web/HTTP/Status/204)
+
 OpenAPIのリポジトリでも、DELTEメソッドはリクエストボディを許可してないとある。
 
 [Allow requestBody for the DELETE method. · Issue #1801 · OAI/OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification/issues/1801)
