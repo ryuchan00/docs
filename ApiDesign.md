@@ -1,6 +1,6 @@
 # API設計
 
-OpenAPIとかの情報を残す。
+APIの設計やOpenAPIの情報を残す。
 
 ## OpenAPI3
 
