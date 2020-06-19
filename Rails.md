@@ -78,3 +78,11 @@ protect_from_forgery with: :exception
 `destroy_all` メソッドを使用する。
 
 [ActiveRecordにおけるdestroyとdestroy!の違い - Qiita](https://qiita.com/jnchito/items/3393c5c1a744199e128a)
+
+## Railsのプレースホルダー
+
+```rb
+User.where('rank=?','diamond')
+```
+
+[Active Record のプレースホルダー付き条件を知る - Qiita](https://qiita.com/FumiyaShibusawa/items/5dd3633e91b69d04150b)
