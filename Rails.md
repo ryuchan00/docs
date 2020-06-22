@@ -86,3 +86,25 @@ User.where('rank=?','diamond')
 ```
 
 [Active Record のプレースホルダー付き条件を知る - Qiita](https://qiita.com/FumiyaShibusawa/items/5dd3633e91b69d04150b)
+
+## routes.rbの書き方
+
+```rb
+# ネームスペースの切り方、ネストで囲まれた部分が/v1/以下のリソースになる
+namespace :v1, defaults: {format: :json} do
+  # UsersControllerに対してのパスを定義すると、resourcesを使用することとなる
+  # この場合は、showなどはGET /v1/users/1のようにuser idがパスに入るようになる
+  resources :users, only: [:index, :create, :show] do
+    # Userモデルに従属しているScoreモデルのエンドポイントを作成するなら以下のような表現になる
+    # GET /v1/users/1/scores/1
+    resources :scores, only: [:index, :create, :show] do
+    end
+
+    # user idを必要としないものは、collectionを用いる
+    # POST /v1/users/batch_delete
+    collection do
+      post :batch_delete
+    end
+  end
+end
+```
