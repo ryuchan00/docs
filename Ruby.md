@@ -87,3 +87,58 @@ puts 'SHA512: ' + Digest::SHA512.hexdigest(plain_text)
 詳しい仕様は、Rubyのlibrary digestを参照する。
 
 [library digest (Ruby 2.7.0 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/library/digest.html)
+
+## モジュールをインクルード時に実行するメソッド
+
+`included` を使用する。
+
+```rb
+module Foo
+  def self.included(mod)
+    p "#{mod} include #{self}"
+  end
+end
+class Bar
+  include Foo
+end
+# => "Bar include Foo"
+```
+
+[Module#included (Ruby 2.7.0 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Module/i/included.html)
+
+## エラーキャッチの方法
+
+rescueでもいいが洗礼された方法として `rescue_from` が存在する。
+
+```rb
+class ApplicationController < ActionController::Base
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
+  private
+
+    def record_not_found
+      render plain: "404 Not Found", status: 404
+    end
+end
+```
+
+ちなみにblockを渡すこともできる。こうすることによってエラーオブジェクトを活用することができる。
+
+```rb
+rescue_from ActiveRecord::RecordNotFound do |e|
+  custom_render(e.model.constantize.model_name.human)
+end
+```
+
+[Action Controller の概要 - Railsガイド](https://railsguides.jp/action_controller_overview.html#rescue-from)
+
+## Hashのキーから割り出す
+
+```rb
+h = {1=>"a", 2=>"b", 3=>"c"}
+
+p h.values_at(1,3,4)               #=> ["a", "c", nil]
+# [h[1], h[3] ,h[4]] と同じ
+```
+
+[Hash#values_at (Ruby 2.7.0 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Hash/i/values_at.html)
