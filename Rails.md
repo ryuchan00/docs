@@ -219,3 +219,30 @@ end
 ## railsでのhttp status codeの一覧
 
 [HTTP status code symbols for Rails](https://gist.github.com/mlanett/a31c340b132ddefa9cca)
+
+## i18nの導入
+
+config/application.rb
+
+```rb
+# デフォルトのロケーションを指定する
+config.i18n.default_locale = :ja
+# ロケーションファイルの場所を追加する
+config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.yml')]
+```
+
+以下のような例で config/locales/ja.yml を追加する。
+
+```rb
+ja:
+  activerecord:
+    models:
+      user: 使用ユーザー
+  errors:
+    responses:
+      detail:
+        not_found: "%{name}が見つかりませんでした"
+      title:
+        not_found: 見つかりませんでした
+```
+
