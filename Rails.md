@@ -210,7 +210,7 @@ end
 
 ### I18n.tについて
 
-```
+```rb
         I18n.t(detail, (placeholders || {}).merge(scope: [:errors, :responses, :detail]))
 ```
 
