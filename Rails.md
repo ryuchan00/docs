@@ -16,7 +16,7 @@ validateのユニーク制約に引っかかると taken になる。
 
 `.errors` にエラーオブジェクトが入っている。以下が使用例である。
 
-```
+```rb
 > a = build(:user)
 > a.valid?
 => false
@@ -30,7 +30,7 @@ validateのユニーク制約に引っかかると taken になる。
 
 `careate` や `build` にハッシュが要素の配列を渡してあげれば、複数レコードをinsertできたりする
 
-```rails
+```rb
 class Person
   has_many :pets
 end
