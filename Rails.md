@@ -187,3 +187,31 @@ module ErrorRenderable
   end
 end
 ```
+
+### e.model.constantize.model_name.human について
+
+エラーレスポンス作成時に意味がわからなかったコードが `e.model.constantize.model_name` であった。 `constantize` メソッドは、レシーバーが文字列だと、その定数があるか調べて、定数を返す。つまり `e.model` が"User"だった場合は `e.model.constantize` は `User` になる。そこで特異メソッドが使えるようになる。 `modle_name.human` は下の例を見てもらうとActiveModelオブジェクトのインスタンス変数は色々持っているが、その中で、自分のリソース名を単数で持っている。
+
+```rb
+[2] pry(#<Api::OptionSetAssignmentRulesController>)> e.model.constantize.model_name
+=> #<ActiveModel::Name:0x0000560f60c75518
+ @collection="option_set_assignment_rules",
+ @element="option_set_assignment_rule",
+ @human="Option set assignment rule",
+ @i18n_key=:option_set_assignment_rule,
+ @klass=OptionSetAssignmentRule(id: integer, target_type: integer, target_value: string, sort_number: integer, created_at: datetime
+ @name="OptionSetAssignmentRule",
+ @param_key="option_set_assignment_rule",
+ @plural="option_set_assignment_rules",
+ @route_key="option_set_assignment_rules",
+ @singular="option_set_assignment_rule",
+ @singular_route_key="option_set_assignment_rule">
+```
+
+### I18n.tについて
+
+```
+        I18n.t(detail, (placeholders || {}).merge(scope: [:errors, :responses, :detail]))
+```
+
+`I18n.t` の第一引数は、ymlの中のキーであるが、第二引数がよくわかっていなかった。placeholders変数には `name:` のキーが含まれている。 `scope` は、I18nテンプレートの場所を指定している。この場合はerror->responses->detailになっている。指定しない場合は、トップレベルが参照される。
