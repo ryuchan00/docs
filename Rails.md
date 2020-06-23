@@ -215,3 +215,7 @@ end
 ```
 
 `I18n.t` の第一引数は、ymlの中のキーであるが、第二引数がよくわかっていなかった。placeholders変数には `name:` のキーが含まれている。 `scope` は、I18nテンプレートの場所を指定している。この場合はerror->responses->detailになっている。指定しない場合は、トップレベルが参照される。
+
+## railsでのhttp status codeの一覧
+
+[HTTP status code symbols for Rails](https://gist.github.com/mlanett/a31c340b132ddefa9cca)
