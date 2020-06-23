@@ -116,3 +116,93 @@ p h.values_at(1,3,4)               #=> ["a", "c", nil]
 ```
 
 [Hash#values_at (Ruby 2.7.0 リファレンスマニュアル)](https://docs.ruby-lang.org/ja/latest/method/Hash/i/values_at.html)
+
+## mysql2のGemのインストールに失敗する
+
+mysql2のGemを含むGemfileをbundle installしていたら次のようなエラーが出た。
+
+```log
+❯ bundle installa
+Fetching gem metadata from https://rubygems.org/......
+Using rake 12.3.3
+Using concurrent-ruby 1.1.5
+Using i18n 0.9.5
+Using minitest 5.12.0
+Using thread_safe 0.3.6
+Using tzinfo 1.2.5
+Using activesupport 4.2.11.1
+Using builder 3.2.3
+Using activemodel 4.2.11.1
+Using arel 6.0.4
+Using activerecord 4.2.11.1
+Using bcrypt_pbkdf 1.0.1
+Using bundler 1.17.3
+Using coderay 1.1.2
+Using composite_primary_keys 8.1.7
+Using enumerize 2.3.1
+Using factory_girl 4.9.0
+Fetching mysql2 0.3.18
+Installing mysql2 0.3.18 with native extensions
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: /Users/yamakawa00/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/mysql2-0.3.18/ext/mysql2
+/Users/yamakawa00/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20191101-23378-6o0uiy.rb extconf.rb
+--with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include
+checking for ruby/thread.h... yes
+checking for rb_thread_call_without_gvl() in ruby/thread.h... yes
+checking for rb_thread_blocking_region()... no
+checking for rb_wait_for_single_fd()... yes
+checking for rb_hash_dup()... yes
+checking for rb_intern3()... yes
+-----
+Using mysql_config at /usr/local/opt/mysql@5.6/bin/mysql_config
+-----
+checking for mysql.h... yes
+checking for errmsg.h... yes
+checking for mysqld_error.h... yes
+-----
+Don't know how to set rpath on your system, if MySQL libraries are not in path mysql2 may not load
+-----
+-----
+Setting libpath to /usr/local/opt/mysql@5.6/lib
+-----
+creating Makefile
+
+current directory: /Users/yamakawa00/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/mysql2-0.3.18/ext/mysql2
+make "DESTDIR=" clean
+
+current directory: /Users/yamakawa00/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/mysql2-0.3.18/ext/mysql2
+make "DESTDIR="
+compiling client.c
+compiling infile.c
+compiling mysql2_ext.c
+compiling result.c
+linking shared-object mysql2/mysql2.bundle
+ld: library not found for -limported_openssl
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [mysql2.bundle] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in /Users/yamakawa00/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/mysql2-0.3.18 for
+inspection.
+Results logged to
+/Users/yamakawa00/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/extensions/x86_64-darwin-18/2.5.0-static/mysql2-0.3.18/gem_make.out
+
+An error occurred while installing mysql2 (0.3.18), and Bundler cannot continue.
+Make sure that `gem install mysql2 -v '0.3.18' --source 'https://rubygems.org/'` succeeds before bundling.
+
+In Gemfile:
+  colorme-fixtures was resolved to 0.0.1, which depends on
+    mysql2
+```
+
+色々試して、mysqlコマンドが実行できない、Opensslは入ってるので、もしかしてmysql2のバージョンが現在入っているOpensslのバージョンに対応していないのでは？と思ったので試してみることにした。そしたらうまくいった。
+
+```log
+brew install openssl@1.0.2r
+brew switch openssl 1.0.2t
+mysql.server start
+```
+
+[MacでMySQL起動時にエラー(dyld: Library not loaded: /usr/local/opt/openssl/lib/libssl.1.0.0.dylib) - Qiita](https://qiita.com/hirotech/items/d16988b79f7673fa2d31)
