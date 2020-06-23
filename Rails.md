@@ -156,12 +156,12 @@ end
 ```rb
 module ErrorRenderable
   extend ActiveSupport::Concern
-  
+
   included do
     rescue_from ActiveRecord::RecordNotFound do |e|
       render_error({ title: :not_found, detail: :not_found, placeholders: { name: e.model.constantize.model_name.human } }, status: :not_found)
     end
-    
+
     private
 
     def render_error(error, status:)
