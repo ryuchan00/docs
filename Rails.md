@@ -233,7 +233,7 @@ config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.yml')]
 
 以下のような例で config/locales/ja.yml を追加する。
 
-```rb
+```yml
 ja:
   activerecord:
     models:
