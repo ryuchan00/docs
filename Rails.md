@@ -142,7 +142,7 @@ end
 
 ```json
 {
-  [
+  'errors': [
     {'title': 'not found', 'detail': 'user is not found'},
     {'title': '...', 'detail': '...'},
   ]
