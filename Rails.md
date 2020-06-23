@@ -135,3 +135,16 @@ end
 ```
 
 [Action Controller の概要 - Railsガイド](https://railsguides.jp/action_controller_overview.html#rescue-from)
+
+## apiを作成するときのエラーレスポンスの例
+
+社でエラーレスポンスを悩んだ時に良い例があった。
+
+```json
+{
+  [
+    {'title': 'not found', 'detail': 'user is not found'},
+    {'title': '...', 'detail': '...'},
+  ]
+}
+```
