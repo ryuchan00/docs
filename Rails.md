@@ -108,3 +108,30 @@ namespace :v1, defaults: {format: :json} do
   end
 end
 ```
+
+
+## エラーキャッチの方法
+
+rescueでもいいが洗礼された方法として `rescue_from` が存在する。
+
+```rb
+class ApplicationController < ActionController::Base
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
+  private
+
+    def record_not_found
+      render plain: "404 Not Found", status: 404
+    end
+end
+```
+
+ちなみにblockを渡すこともできる。こうすることによってエラーオブジェクトを活用することができる。
+
+```rb
+rescue_from ActiveRecord::RecordNotFound do |e|
+  custom_render(e.model.constantize.model_name.human)
+end
+```
+
+[Action Controller の概要 - Railsガイド](https://railsguides.jp/action_controller_overview.html#rescue-from)
