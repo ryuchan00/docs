@@ -138,7 +138,7 @@ end
 
 ## apiを作成するときのエラーレスポンスの例
 
-社でエラーレスポンスを悩んだ時に良い例があった。
+社でエラーレスポンスを悩んだ時に良い例があった。titleにはエラータイトルを、detailにはタイトルに対しての詳細を書区と良いみたい。
 
 ```json
 {
@@ -147,4 +147,43 @@ end
     {"title": "...", "detail": "..."},
   ]
 }
+```
+
+## エラーモジュールの設計
+
+最低限のエラーモジュールは以下のような感じ、これをApplicationControllerなどに `include ErrorRenderable` する。
+
+```rb
+module ErrorRenderable
+  extend ActiveSupport::Concern
+  
+  included do
+    rescue_from ActiveRecord::RecordNotFound do |e|
+      render_error({ title: :not_found, detail: :not_found, placeholders: { name: e.model.constantize.model_name.human } }, status: :not_found)
+    end
+    
+    private
+
+    def render_error(error, status:)
+      errors = [error].flatten.map { |error|
+        title, detail, placeholders = error.values_at(:title, :detail, :placeholders)
+        {
+          title: I18n.t(title, scope: [:errors, :responses, :title]),
+          detail: detail_messages(detail, placeholders)
+        }
+      }
+
+      render json: { errors: errors }, status: status
+    end
+
+    def detail_messages(detail, placeholders)
+      case detail
+      when Symbol
+        I18n.t(detail, (placeholders || {}).merge(scope: [:errors, :responses, :detail]))
+      else
+        detail
+      end
+    end
+  end
+end
 ```
