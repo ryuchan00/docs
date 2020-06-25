@@ -246,3 +246,23 @@ ja:
         not_found: 見つかりませんでした
 ```
 
+## レコード削除時に関連したレコードも一緒に削除する
+
+関連に対して `dependent: :destroy` をつける。
+
+```rb
+# models/card.rb
+has_many :cards_coupons, dependent: :destroy  #追加
+has_many :coupons, through: :cards_coupons
+
+# models/cards_coupon.rb
+belongs_to :card
+belongs_to :coupon, dependent: :destroy  #追加
+
+# models/coupon.rb
+has_many :cards_coupons
+has_many :cards, through: :cards_coupons
+
+```
+
+[【Rails】レコード削除時に関連するテーブルのレコードも一緒に削除する方法 - Qiita](https://qiita.com/y-suna/items/67e13eb6072db93cf58d)
