@@ -25,3 +25,29 @@ create_listは複数インスタンスを生成してくれる。複数レコー
 ```
 
 [RSpecでFactoryBotから複数のインスタンスをまとめて作成する【create_listを使用】 - Qiita](https://qiita.com/kodai_0122/items/e755a128f1dade3f53c6)
+
+## 同じテストパターンを使い回す
+
+`shared_examples_for` を使用する。
+
+```rb
+# 定義する
+shared_examples_for 'ユーザーが複数あるとき' do
+  before do
+    users.push({name: 'hoge'})
+  end
+
+  it 'ユーザーが複数保存される' do
+    is_expected.to change(User, :count).by(2)
+  end
+end
+
+# 実際に呼び出す
+context '会員登録が初めての時' do
+  before do
+    system.status = 'ready'
+  end
+  
+  it_behaves_like 'ユーザーが複数保存される'
+end
+```
