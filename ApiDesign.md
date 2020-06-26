@@ -77,6 +77,10 @@ POSTメソッドにして解決する場合は、エンドポイントを `batch
 
 [HTTP - Developers - Dropbox](https://www.dropbox.com/developers/documentation/http/documentation#files-delete_batch)
 
+## Railsでのhttpステータスコードのシンボル一覧
+
+https://github.com/ryuchan00/docs/blob/master/Rails.md#rails%E3%81%A7%E3%81%AEhttp-status-code%E3%81%AE%E4%B8%80%E8%A6%A7
+
 ## 参考になる資料
 
 [API 設計ガイド  |  Cloud API  |  Google Cloud](https://cloud.google.com/apis/design?hl=ja)
