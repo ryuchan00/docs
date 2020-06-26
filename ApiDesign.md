@@ -39,9 +39,13 @@ paths:
 
 [Paths and Operations](https://swagger.io/docs/specification/paths-and-operations/)
 
+## PUTメソッドについて
+
+返信するステータスコードは成功時は200、更新処理に失敗した時は４２２を返す。
+
 ## DELTEメソッドについて
 
-返却するステータスコードは `204` 、No Contentである。つまり何も返さない。
+返却するステータスコードは204、No Contentである。つまり何も返さない。
 
 [204 No Content - HTTP | MDN](https://developer.mozilla.org/ja/docs/Web/HTTP/Status/204)
 
