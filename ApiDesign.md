@@ -41,7 +41,29 @@ paths:
 
 ## PUTメソッドについて
 
-返信するステータスコードは成功時は200、更新処理に失敗した時は４２２を返す。
+返信するステータスコードは成功時は200、更新処理に失敗した時は４２２を返す。レスポンスについては、使わないのであれば特に返す必要はない。公開APIは幅広く使ってもらえるために更新リソースを返すのが一般的である。
+
+### Railsにおける最小構成
+
+```rb
+def update
+  status :ok  # okは200を返す
+end
+```
+
+### PATCH
+
+PUTと一緒のステータスコードを返す。PUTとの使い分けは以下の通り
+
+> A new method is necessary to improve interoperability and prevent
+errors. The PUT method is already defined to overwrite a resource
+with a complete new body, and cannot be reused to do partial changes.
+Otherwise, proxies and caches, and even clients and servers, may get
+confused as to the result of the operation.
+
+訳すとPATCHメソッドは、相互運用性とエラーを防ぐために必要だ。PUTはリソースを新しいボディで上書きするためにすでに定義されている。そしてそれは、複数に再利用することができない。にも関わらず、プロキシートとキャッシュ、そして毎クライアントとサーバーはオペレーションの結果に関わらず複雑になるだろう。と書いてある。つまりリソースの一部の更新なのに、丸々入れかえる意味のPUTメソッドを使用するのはどうなのかという声があるっぽかった。
+
+[www.rfc-editor.org/rfc/rfc5789.txt](http://www.rfc-editor.org/rfc/rfc5789.txt)
 
 ## DELTEメソッドについて
 
@@ -52,6 +74,14 @@ paths:
 OpenAPIのリポジトリでも、DELTEメソッドはリクエストボディを許可してないとある。
 
 [Allow requestBody for the DELETE method. · Issue #1801 · OAI/OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification/issues/1801)
+
+### Railsにおける最小構成
+
+```rb
+def destroy
+  head :no_content
+end
+```
 
 ### 一括削除について
 
