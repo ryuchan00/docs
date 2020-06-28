@@ -206,3 +206,14 @@ mysql.server start
 ```
 
 [MacでMySQL起動時にエラー(dyld: Library not loaded: /usr/local/opt/openssl/lib/libssl.1.0.0.dylib) - Qiita](https://qiita.com/hirotech/items/d16988b79f7673fa2d31)
+
+## Ruby で hash の配列から、特定の key の value のみの配列を作成する
+
+よく忘れるやつ
+
+```rb
+hoge = [{a: 1, b: 2}, {a: 3, b: 4}]
+hoge.map{|h| h[:a]}  # [1,3]
+```
+
+[Ruby で hash の配列から、特定の key の value のみの配列を作成する - Qiita](https://qiita.com/longtime1116/items/21f706d37606c2ceeec1)
