@@ -51,3 +51,7 @@ context '会員登録が初めての時' do
   it_behaves_like 'ユーザーが複数保存される'
 end
 ```
+
+## JSONの一部とマッチングさせる
+
+[r7kamura/rspec-json_matcher: RSpec matcher for testing JSON string](https://github.com/r7kamura/rspec-json_matcher) を使用する
