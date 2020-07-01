@@ -276,3 +276,14 @@ has_many :cards, through: :cards_coupons
 ```
 
 [Rails | ハッシュのキーを全てシンボルから文字列に変える ( stringify_keys / deep_stringify_keys ) - Qiita](https://qiita.com/Yinaura/items/4d999e0ee6b450f25ae7)
+
+## whereの否定をする
+
+```rb
+# notを使用する
+ids = [1,2]
+# idが1,2以外のものが取得できる
+User.where.not(id: ids)
+```
+
+[Rails whereの検索で否定を使う | Workabroad.jp](https://workabroad.jp/posts/2029)
