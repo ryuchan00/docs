@@ -4,17 +4,17 @@ APIの設計やOpenAPIの情報を残す。
 
 ## OpenAPI3
 
-### DataのTypes
+### DataのType
 
 `integer` や `number` などの仕様の相違点は下記を見ればわかる。
 
 [Data Types](https://swagger.io/docs/specification/data-models/data-types/)
 
-### type: array
+#### type: array
 
 `items:` を忘れないこと。
 
-```
+```yml
   ids:
     type: array
     items:
@@ -24,6 +24,20 @@ APIの設計やOpenAPIの情報を残す。
       - 2
       - 3
 ```
+
+#### nullを表現するには
+
+厳格にnullを表現することはできないが、 `nullable: true` を使用するべ、nullableであることはわかる。
+
+```yml
+# Correct
+type: integer
+nullable: true
+```
+
+> OpenAPI 3.0 does not have an explicit null type as in JSON Schema, but you can use nullable: true to specify that the value may be null. Note that null is different from an empty string "".
+
+[Data Types](https://swagger.io/docs/specification/data-models/data-types/)
 
 ### パスにパラメーターを含めるとき
 
