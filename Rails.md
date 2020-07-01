@@ -266,3 +266,13 @@ has_many :cards, through: :cards_coupons
 ```
 
 [【Rails】レコード削除時に関連するテーブルのレコードも一緒に削除する方法 - Qiita](https://qiita.com/y-suna/items/67e13eb6072db93cf58d)
+
+## ハッシュにキーをシンボルから文字列に変更する
+
+```rb
+{ a: 1, b: 2, c: 3 }.stringify_keys
+
+# => {"a"=>1, "b"=>2, "c"=>3}
+```
+
+[Rails | ハッシュのキーを全てシンボルから文字列に変える ( stringify_keys / deep_stringify_keys ) - Qiita](https://qiita.com/Yinaura/items/4d999e0ee6b450f25ae7)
