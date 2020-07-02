@@ -81,7 +81,7 @@ confused as to the result of the operation.
 
 [www.rfc-editor.org/rfc/rfc5789.txt](http://www.rfc-editor.org/rfc/rfc5789.txt)
 
-## DELTEメソッドについて
+## DELETEメソッドについて
 
 返却するステータスコードは204、No Contentである。つまり何も返さない。
 
