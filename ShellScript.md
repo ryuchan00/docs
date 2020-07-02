@@ -50,3 +50,18 @@ convert -size 1200x1200 -gravity center -font AndaleMono -fill blue -background 
 ```
 
 [ImageMagickで画像に文字を描画 – エラーの向こうへ](https://tech.mktime.com/entry/145)
+
+## 複数サーバーにコマンドを順次実行する
+
+for文で回して実行する。
+
+```sh
+#!/bin/bash
+
+HOSTS=('192.178.0.1' '192.178.0.2')
+
+for i in ${HOSTS[@]}
+do
+ssh $i 'grep hoge ~/src/hoge_*.log'
+done
+```
