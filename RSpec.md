@@ -55,3 +55,15 @@ end
 ## JSONの一部とマッチングさせる
 
 [r7kamura/rspec-json_matcher: RSpec matcher for testing JSON string](https://github.com/r7kamura/rspec-json_matcher) を使用する
+
+## テストするメソッドを短縮する
+
+`subject` を使用する。使用するには `is_expected` を使用して下記の例のように使用する。
+
+```rb
+subject { -> { post "/api/users", params: {name: 'hoge'} }
+
+specify do
+  is_expected.to change(User, :count).from(0).to(1)
+end
+```
