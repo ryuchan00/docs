@@ -53,6 +53,20 @@ paths:
 
 [Paths and Operations](https://swagger.io/docs/specification/paths-and-operations/)
 
+### idなしとありでファイルを切り替える
+
+RESUfulなAPIを作成する時に、同じリソースでもidの有無が違う場合がある。その場合は以下のようにする。
+
+openapi.yml
+
+```yml
+paths:
+  /users:
+    $ref: './paths/users.yml` # 主にGET usersやPOST usersの時に使用する
+  /users/#{user_id}:
+    $ref: './paths/user.yml` # 主にPATCH users/1やGET users/1、DELETE users/1の時に使用する
+```
+
 ## PUTメソッドについて
 
 返信するステータスコードは成功時は200、更新処理に失敗した時は４２２を返す。レスポンスについては、使わないのであれば特に返す必要はない。公開APIは幅広く使ってもらえるために更新リソースを返すのが一般的である。422はサーバーへの要求コンテンツの型は正しいものの、中に含まれている指示が処理できないことを表す。
