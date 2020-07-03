@@ -287,3 +287,23 @@ User.where.not(id: ids)
 ```
 
 [Rails whereの検索で否定を使う | Workabroad.jp](https://workabroad.jp/posts/2029)
+
+## controllerでメソッド実行前に前処理をする
+
+```rb
+# update前にset_userメソッドが呼ばれる
+before_action :set_user
+# 前処理を実行するメソッドを限定する場合はonlyを指定する
+before_action :set_user, only: [:update]
+# ブロックを渡してあげても機能する
+before_action do
+  @user = User.find(params[:id])
+end
+
+def update
+  @user.update!(params)
+end
+
+def set_user
+  @user = User.find(params[:id])
+```
