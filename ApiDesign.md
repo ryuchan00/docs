@@ -83,9 +83,11 @@ confused as to the result of the operation.
 
 ## DELETEメソッドについて
 
-返却するステータスコードは204、No Contentである。つまり何も返さない。
+返却するステータスコードは204、No Contentである。つまり何も返さない。エラーコードは409を返す。意味はconflictなので削除しようとしたリソースがロック中の場合が考えられる。または422を返して処理がうまくいっていないことを表す。
 
 [204 No Content - HTTP | MDN](https://developer.mozilla.org/ja/docs/Web/HTTP/Status/204)
+
+[RESTful API設計におけるHTTPステータスコードの指針 - Qiita](https://qiita.com/uenosy/items/ba9dbc70781bddc4a491#delete)
 
 OpenAPIのリポジトリでも、DELTEメソッドはリクエストボディを許可してないとある。
 
