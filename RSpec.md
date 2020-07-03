@@ -67,3 +67,19 @@ specify do
   is_expected.to change(User, :count).from(0).to(1)
 end
 ```
+
+## ブロックの中でレコードの数が変化したことを確認する
+
+`change by` `change form to` を使用する。
+
+```rb
+specify do
+  # Userのレコードが1件増えたことを確認する
+  expect{ post `/users`, params: prams}.to change(User, :count).by(1)
+end
+
+specify do
+  # Userのレコードが0件から1件に変わったことを確認する
+  expect{ post `/users`, params: prams}.to change(User, :count).from(0).to(1)
+end
+```
