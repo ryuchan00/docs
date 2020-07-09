@@ -2,7 +2,7 @@
 
 `ls -l` の結果の4つ目以降のカラムを切り出す。
 
-```
+```sh
 ls -l | cut -d ' ' -f -4
 ```
 
@@ -16,7 +16,7 @@ ls -l | cut -d ' ' -f -4
 
 ## zsh_historyのバックアップを取る
 
-```
+```sh
 #!/bin/bash
 # エラーは捨てる
 mkdir -p ~/zsh_history_backup 2>/dev/null
