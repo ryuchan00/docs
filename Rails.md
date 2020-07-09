@@ -319,6 +319,6 @@ json.products do
 end
 ```
 
-したがって、 `@user` オブジェクト作成時に、関連を一緒に取得してキャッシュしてしまった方が良い。
+したがって、 `@user` オブジェクト作成時に、関連を一緒に取得してキャッシュしてしまった方が良い。方法としては `includes` や `joins` を使用する方法がある。
 
 [Rails で includes して N+1 問題対策 - Qiita](https://qiita.com/hirotakasasaki/items/e0be0b3fd7b0eb350327)
