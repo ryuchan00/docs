@@ -310,11 +310,15 @@ def set_user
 
 ## ViewテンプレートでのN + 1問題を解決する
 
-jbuilderの実装例ではあるが、
+jbuilderの実装例ではあるが、以下のように書くと `products` の数だけN+1になってしまう
 
 ```jbuilder
-json.option_fields do
-  json.array! @option_set.option_fields do |option_field|
-  json.extract! option_field, :id, :name, :input_type, :sort_number, :required
+json.products do
+  json.array! @users.products do |product|
+  json.extract! product, :id, :name
 end
 ```
+
+したがって、 `@user` オブジェクト作成時に、関連を一緒に取得してキャッシュしてしまった方が良い。
+
+[Rails で includes して N+1 問題対策 - Qiita](https://qiita.com/hirotakasasaki/items/e0be0b3fd7b0eb350327)
