@@ -307,3 +307,14 @@ end
 def set_user
   @user = User.find(params[:id])
 ```
+
+## ViewテンプレートでのN + 1問題を解決する
+
+jbuilderの実装例ではあるが、
+
+```jbuilder
+json.option_fields do
+  json.array! @option_set.option_fields do |option_field|
+  json.extract! option_field, :id, :name, :input_type, :sort_number, :required
+end
+```
