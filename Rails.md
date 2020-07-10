@@ -310,7 +310,7 @@ def set_user
 
 ## ViewテンプレートでのN + 1問題を解決する
 
-jbuilderの実装例ではあるが、以下のように書くと `products` の数だけN+1になってしまう
+jbuilderの実装例ではあるが、以下のように書くと `products` の数だけN+1になってしまう。
 
 ```jbuilder
 json.products do
@@ -319,6 +319,18 @@ json.products do
 end
 ```
 
-したがって、 `@user` オブジェクト作成時に、関連を一緒に取得してキャッシュしてしまった方が良い。方法としては `includes` や `joins` を使用する方法がある。
+したがって、 `@user` オブジェクト作成時に、関連を一緒に取得してキャッシュしてしまった方が良い。方法としては `includes` や `joins` を使用する方法がある。僕はよくincludesを使用するのでその例を書く。
+
+```rb
+users = User.includes(:address, friends: [:address, :followers])
+```
+
+上の例ではUserと関連を持っているAddressモデルとFriendモデル、さらにFriendモデルと関連のあるAddresモデルとFollowerモデルをまとめて引ける。
+
+[Active Record クエリインターフェイス - Railsガイド](https://railsguides.jp/active_record_querying.html#%E8%A4%87%E6%95%B0%E3%81%AE%E9%96%A2%E9%80%A3%E4%BB%98%E3%81%91%E3%82%92%E4%B8%80%E6%8B%AC%E3%81%A7%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%80)
 
 [Rails で includes して N+1 問題対策 - Qiita](https://qiita.com/hirotakasasaki/items/e0be0b3fd7b0eb350327)
+
+[ActiveRecord::QueryMethods](https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-includes)
+
+[Rails ActiveRecord/SQL 小技集 - Qiita](https://qiita.com/tomomomo1217/items/1ccd21bfb97730763255#%E5%AD%90%E3%83%A2%E3%83%87%E3%83%AB%E5%AD%AB%E3%83%A2%E3%83%87%E3%83%AB%E3%81%8C%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%8A%BD%E5%87%BA)
