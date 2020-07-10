@@ -334,3 +334,27 @@ users = User.includes(:address, friends: [:address, :followers])
 [ActiveRecord::QueryMethods](https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-includes)
 
 [Rails ActiveRecord/SQL 小技集 - Qiita](https://qiita.com/tomomomo1217/items/1ccd21bfb97730763255#%E5%AD%90%E3%83%A2%E3%83%87%E3%83%AB%E5%AD%AB%E3%83%A2%E3%83%87%E3%83%AB%E3%81%8C%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%8A%BD%E5%87%BA)
+
+## カスタムエラークラスの作成方法
+
+使用用途としては、raiseしたときに、適切なエラーハンドリングをしたい場合は、独自のエラークラスを定義してエラーハンドリングをした方が良い。lib/exceptions.rbを作成して以下のようにする。
+
+
+```rb
+module ApplicationName
+  # StandardErrorを継承させる
+  class InvalidUserError < StandardError; end
+end
+```
+
+エラークラスファイルを読み込まなくてはいけないので、config/initializers/exceptions.rbでrequireする
+
+```rb
+require 'application_name/exceptions'
+```
+
+あとはraiseするときにクラスを指定するだけ
+
+```rb
+raise ApplicationName::InvalidUserError
+```
