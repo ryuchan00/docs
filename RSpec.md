@@ -100,3 +100,5 @@ before do
   allow_any_instance_of(User).to receive(:other_api).and_return(true)
 end
 ```
+
+[使えるRSpec入門・その3「ゼロからわかるモック（mock）を使ったテストの書き方」 - Qiita](https://qiita.com/jnchito/items/640f17e124ab263a54dd)
