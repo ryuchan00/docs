@@ -83,3 +83,20 @@ specify do
   expect{ post `/users`, params: prams}.to change(User, :count).from(0).to(1)
 end
 ```
+
+## インスタンス化されていないインスタンスメソッドの呼び出しを確認する
+
+使用用途として、requestスペックでモデルのインスタンスメソッドの呼び出しを確認したり、モックしたりすることが考えられる。
+
+```rb
+before do
+  # 必ず呼ばれることを期待するときはexpect_any_instance_ofを使用する
+  # この場合User#other_apiが呼ばれないとテストが落ちる
+  expect_any_instance_of(User).to receive(:other_api).and_return(true)
+end
+
+before do
+  # 必ず呼ばれなくても良いが、呼ばれた場合にはモックレスポンスを返してあげたい場合はallow_any_instance_ofを使用する
+  allow_any_instance_of(User).to receive(:other_api).and_return(true)
+end
+```
