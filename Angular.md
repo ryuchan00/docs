@@ -85,4 +85,35 @@ npm run lint
 npm run lint -- --fix
 ```
 
-## module.tsが
+## ng generate時のmodule.tsが存在する場合のmoduleの指定
+
+例としてapp.module.tsとapi.module.tsの二つがあるとする。そうするとどちらのmoduleに編集を加えればいいかわからないので、 `--module` オプションを使用する。
+
+```sh
+# app.module.tsに対して、編集しつつ、userコンポーネントを作成する
+ng g component user --module app 
+```
+
+## 外部APIを使用した時のcomponent.htmlでの遅延回避方法
+
+下記のコードを実行した場合、userに外部APIのレスポンスが入る前にhtmlがロードされてしまい、consoleにエラーが出てしまう。
+
+user.component.ts
+
+```ts
+ngOnInit(): void {
+  this.userService.getUsers.subscccribe((data) => {
+    this.user = data;
+  });
+}
+```
+
+```html
+{{user.name}}
+```
+
+回避方法は、?をつけてuserが存在しない場合なnameメソッドを使用しないことである。
+
+```html
+{{user?.name}}
+```
