@@ -117,3 +117,37 @@ ngOnInit(): void {
 ```html
 {{user?.name}}
 ```
+
+## パスのidを取得する方法
+
+`/users/1` のようにidがurlに入った場合に、それを取得するためにはどうすれば良いか。 `ActivatedRoute` モジュールを使用するのが良い。
+
+ルーティングの設定を app-routing.module.tsで行う。
+
+```ts
+const routes: Routes = [
+  { path: 'users/:id, component: UserComponent },
+];
+```
+
+user.component.tsは以下のように編集する。
+
+```ts
+import { ActivatedRoute } from '@angular/router';
+
+export class UserComponent implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+  ) {}
+  
+  ngOnInit(): void {
+    // idを取得する、+はjsの構文で、文字列を数値に変換する
+    console.log(+this.route.snapshot.paramMap.get('id'));
+  }
+}
+```
+
+[Angular 日本語ドキュメンテーション - ルーティングを使ったアプリ内ナビゲーションの追加](https://angular.jp/tutorial/toh-pt5#%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%8F%AF%E8%83%BD%E3%81%AA-herodetailcomponent)
+
+
+## フォームの作成方法
