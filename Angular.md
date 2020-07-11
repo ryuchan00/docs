@@ -73,3 +73,16 @@ export class HogeInterceptor implemnts HttpInterceptor {
 CSRFの回避のためにCSRFトークンをクッキーからHTTPヘッダーに付与しようとしたが、HTTPヘッダーにCSRFトークンがなかった。原因はHTTPリクエストを絶対パスで行なっているためである。相対パスで行なった場合のみHttpClientXsrfModuleが機能する。これは、同一のドメインでないとダメということを暗黙的に表現しているのだろうか？
 
 [HttpClientXsrfModuleで設定したヘッダがリクエストに反映されない - トラブルシューティング - Discourse | Angular Japan User Group](https://angular-japan.discourse.group/t/topic/105)
+
+## Angularのlintの方法
+
+```sh
+# lintを走らせて、書き方がエラーの部分を見つけるだけ
+# これを実行するとng lintが走るようになっている
+npm run lint
+
+# 自動で修正する
+npm run lint -- --fix
+```
+
+## module.tsが
