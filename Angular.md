@@ -152,4 +152,21 @@ export class UserComponent implements OnInit {
 
 ## フォームの作成方法
 
-## Angular Matrialで
+## Angular Matrialでリストを作成する
+
+ユーザ一覧のように一覧画面を作成する。ユーザの名前をクリックしたら遷移させたい。ユーザにマウスホバーしたら色を変えたい。
+
+<mat-nav-list>タグを使う。
+
+```html
+<mat-nav-list>
+  <mat-list-item *ngFor="let user of users">
+    <!-- matLineで幅いっぱいの線を引く -->
+    <a matLine href="./users/{{ user.id }}">{{ user.name }}</a>
+    <!-- 下線を引く -->
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>
+```
+
+[List | Angular Material](https://material.angular.io/components/list/overview#navigation-lists)
