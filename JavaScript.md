@@ -20,3 +20,12 @@ const newArray = array.filter(n => n !== 1);
 ```
 
 [Javascriptで指定した配列の要素を削除する - Qiita](https://qiita.com/Sekky0905/items/598b47fea2106b8c140e#%E8%BF%BD%E8%A8%98)
+
+## indexをつけながら配列を回す
+
+```js
+users.forEach((user, index) => {
+});
+```
+
+[for ... of 文でインデックス(index)の値を使う方法 - Qiita](https://qiita.com/TakahiRoyte/items/dca532dd64bc782ad849)
