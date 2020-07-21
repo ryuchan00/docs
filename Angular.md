@@ -170,3 +170,13 @@ export class UserComponent implements OnInit {
 ```
 
 [List | Angular Material](https://material.angular.io/components/list/overview#navigation-lists)
+
+## FormArray内のデータを編集する
+
+getでキーを指定して、setValueで値を代入する。
+
+```ts
+users.controls[i].get('name').setValue('');
+```
+
+[Angular の FormArray で項目数が動的に増える入力フォームを実現する - Corredor](https://neos21.hatenablog.com/entry/2018/05/21/080000)
