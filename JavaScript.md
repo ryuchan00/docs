@@ -29,3 +29,13 @@ users.forEach((user, index) => {
 ```
 
 [for ... of 文でインデックス(index)の値を使う方法 - Qiita](https://qiita.com/TakahiRoyte/items/dca532dd64bc782ad849)
+
+## リダイレクトの方法
+
+```
+location.href = 'https://hoge.jp/users/' + id
+```
+
+[javascriptで転送（リダイレクト）を行う方法と注意点 | SEO研究所サクラサクラボ](https://www.sakurasaku-labo.jp/blogs/javascript-redirect)
+
+
