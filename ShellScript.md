@@ -65,3 +65,20 @@ do
 ssh $i 'grep hoge ~/src/hoge_*.log'
 done
 ```
+
+## Pipfileとのバージョンが異なるためエラーになる
+
+```
+Warning: Your Pipfile requires python_version 3.7.7, but you are using 3.7.6 (/Users/fuga/.local/share/v/c/bin/python).
+  $ pipenv --rm and rebuilding the virtual environment may resolve the issue.
+  $ pipenv check will surely fail.
+fish: 'pipenv run fab dev-update2' terminated by signal SIGABRT (Abort)
+```
+
+こんな感じでエラーが出た。Pipfileのpythonのバージョンをインストールすれば解決した。
+
+```sh
+pip install pipenv
+```
+
+[Pythonで、Pipenvを使う - Narito Blog](https://blog.narito.ninja/detail/58/)
