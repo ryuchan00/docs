@@ -215,3 +215,11 @@ component.html
 ```
 
 [入力プロパティ @Input() - Angular の基礎 - Angular 入門](https://angular.keicode.com/basics/template-input-properties.php)
+
+## @NgModuleデコレーター
+
+これがあるとAppModuleクラスであることを表す。
+
+### declarations
+
+AppModuleクラスの中に@NgModuleでこれー他は存在する。declarationは、Angularアプリケーションに含まれるクラスはどれなのか指定している。
