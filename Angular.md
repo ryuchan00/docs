@@ -149,9 +149,6 @@ export class UserComponent implements OnInit {
 
 [Angular 日本語ドキュメンテーション - ルーティングを使ったアプリ内ナビゲーションの追加](https://angular.jp/tutorial/toh-pt5#%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%8F%AF%E8%83%BD%E3%81%AA-herodetailcomponent)
 
-
-## フォームの作成方法
-
 ## Angular Matrialでリストを作成する
 
 ユーザ一覧のように一覧画面を作成する。ユーザの名前をクリックしたら遷移させたい。ユーザにマウスホバーしたら色を変えたい。
@@ -180,3 +177,41 @@ users.controls[i].get('name').setValue('');
 ```
 
 [Angular の FormArray で項目数が動的に増える入力フォームを実現する - Corredor](https://neos21.hatenablog.com/entry/2018/05/21/080000)
+
+## @Inputデコレータ
+
+htmlからコンポーネントにデータを渡したい！という時に使用する。
+
+完成イメージ
+
+```html
+<employee lastname="Yamada" firstname="Hanako" title="HR"></employee>
+```
+
+component.ts
+
+```ts
+import {Component, Input} from '@angular/core';
+
+@Component({
+  selector: 'employee',
+  templateUrl: './employee.component.html',
+  styleUrls: [ './employee.component.css']
+})
+export class EmployeeComponent{
+  @Input() lastname;
+  @Input() firstname;
+  @Input() title;
+}
+```
+
+component.html
+
+```html
+<div class='emp'>
+  <div class='emp-name'>{{lastname|uppercase}}, {{firstname}}</div>
+  <div class='emp-title'>{{title}}</div>
+</div>
+```
+
+[入力プロパティ @Input() - Angular の基礎 - Angular 入門](https://angular.keicode.com/basics/template-input-properties.php)
