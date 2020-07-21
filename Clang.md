@@ -22,3 +22,14 @@ int sum_all3(int n, int arr[2][3]) {
 
 [C言語の引数に多次元配列を渡す - Qiita](https://qiita.com/Hiraku/items/babed27bc1d750c2e12d)
 
+## printfの出力方法
+
+[フォーマット指定子一覧](https://www.k-cube.co.jp/wakaba/server/format.html)
+
+## gccの実行方法
+
+MacOSの場合、brewでも入れているけどMacOSのバージョンをあげないといけなさそうな雰囲気を感じたので、XCodeで入れたやつを使用している。
+
+```sh
+/usr/bin/gcc
+```
