@@ -71,3 +71,63 @@ void main(void) {
   hoge(filename);
 }
 ```
+
+## フォルダを作成する
+
+MacとWindowsは違うので注意
+
+Mac
+
+```c
+#include <sys/stat.h>
+
+const char *dir = "./data";
+
+    if (mkdir(dir, 0777) == 0)
+        printf("ディレクトリ%sを作成しました。\n", dir);
+    else
+        printf("ディレクトリ%sを作成できませんでした。\n", dir);
+```
+
+[C言語 - sys/stat - mkdir()](https://www.loose-info.com/main/memolist/c/lib_sys_stat_mkdir.html)
+
+[【C言語/C++】フォルダ作成を行う - めめんと](https://mementoo.info/archives/787)
+
+[C言語関数辞典 - fprintf](http://www.c-tipsref.com/reference/stdio/fprintf.html)
+
+## 文字列連結
+
+3つ以上は `sprintf` を使用する
+
+```c
+// 第一引数は、結果を格納する場所
+sprintf(filename, "%s%d%s", "data/data", j + 1, ".csv");
+```
+
+[文字列の連結 | 誰のためでもないMemo](http://windyrings.jugem.jp/?eid=801)
+
+## ファイルに出力する
+
+`fprintf` メソッドを使用する
+
+```c
+#include <stdio.h> 
+#include <stdlib.h>
+
+int main() {
+  FILE *outputfile;         // 出力ストリーム
+  
+  outputfile = fopen("d.txt", "w");  // ファイルを書き込み用にオープン(開く)
+  if (outputfile == NULL) {          // オープンに失敗した場合
+    printf("cannot open\n");         // エラーメッセージを出して
+    exit(1);                         // 異常終了
+  }
+  
+  fprintf(outputfile, "My name is Enokida Yuuichirou.\n"); // ファイルに書く
+
+  fclose(outputfile);          // ファイルをクローズ(閉じる)
+  return 0;
+}
+```
+
+[ファイルへの出力](https://ylb.jp/2006b/proc/fileio/fileoutput.html)
