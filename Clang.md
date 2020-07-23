@@ -33,3 +33,41 @@ MacOSの場合、brewでも入れているけどMacOSのバージョンをあげ
 ```sh
 /usr/bin/gcc
 ```
+
+## コマンドライン引数
+
+コマンドラインより引数を受け取った時に処理する方法
+
+```c
+int main(int argc, char *argv[]) {
+  int n = 100;
+  
+  // argcは引数の数、argv[0]は必ずあるので2以上かどうかで引数が与えられたか確認している
+  if (argc >= 2)
+    // argv[0]は、実行ファイルのパス名
+    n = atoi(argv[1]);
+}
+```
+
+[コマンドライン引数](http://www9.plala.or.jp/sgwr-t/c/sec11-4.html)
+
+## C言語でヒストグラムを作る
+
+実際にはExcelで作成したが、C言語のみで完結する方法もある。
+
+[メジアン(中央値)、範囲(レンジ)、ヒストグラムを求める](http://cgengo.sakura.ne.jp/arg04.html)
+
+## 文字列を引数にとる
+
+いっつも忘れるのでメモ
+
+```c
+void hoge(char *filename) {
+  printf("%d\n", filename);
+}
+
+void main(void) {
+  char filename[100];
+  hoge(filename);
+}
+```
