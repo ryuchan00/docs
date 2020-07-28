@@ -239,3 +239,9 @@ this.snackBar.open('msg', 'close', {
 ```
 
 [Angular show snackbar after navigation - Stack Overflow](https://stackoverflow.com/questions/56459195/angular-show-snackbar-after-navigation)
+
+## Routerモジュールをテストするとき
+
+`RouterTestingModule` をインポートする。
+
+[Angular - RouterTestingModule](https://angular.io/api/router/testing/RouterTestingModule)
