@@ -217,3 +217,22 @@ hoge.map{|h| h[:a]}  # [1,3]
 ```
 
 [Ruby で hash の配列から、特定の key の value のみの配列を作成する - Qiita](https://qiita.com/longtime1116/items/21f706d37606c2ceeec1)
+
+## RubyGemsがデプロイできなくなった
+
+```sh
+active_merchant-epsilon 0.11.0 built to pkg/active_merchant-epsilon-0.11.0.gem.                                                                             (31/490 results) [2497/15241]
+Tagged v0.11.0.                                                                                                                                                                          
+Untagging v0.11.0 due to error.                                                                                                                                                          
+rake aborted!                                                                                                                                                                            
+Couldn't git push. `git push ' failed with the following output:                                                                                                                         
+                                                                                                                                                                                         
+remote: Permission to pepabo/active_merchant-epsilon.git denied to pepabot.                                                                                                              
+fatal: unable to access 'https://github.com/pepabo/active_merchant-epsilon.git/': The requested URL returned error: 403                                                                  
+                                                                                                                                                                                         
+/Users/yamakawa00/.rbenv/versions/2.6.5/bin/bundle:23:in `load'                                                                                                                          
+/Users/yamakawa00/.rbenv/versions/2.6.5/bin/bundle:23:in `<main>'                                                                                                                       
+Tasks: TOP => release => release:source_control_push                                                                                                                                     (See full trace by running task with --trace)               
+```
+
+いくつもの原因が重なった面倒な奴だった。GitHubにはhttpを使用している。まずMacのkeychainに入れたはずのGitHubへのPersonal Access Tokenが間違っていた。何かの拍子に書き換えてしまったようだ。とりあえず削除して、改めてリリースコマンドを叩いてPersonal Access Tokenを入力してみると、RubyGemsへの権限が
