@@ -118,6 +118,10 @@ ngOnInit(): void {
 {{user?.name}}
 ```
 
+以下のような回避方法もある。
+
+[Using Angular Forms with Async Data - Angular 10 | 9](https://coryrylan.com/blog/using-angular-forms-with-async-data)
+
 ## パスのidを取得する方法
 
 `/users/1` のようにidがurlに入った場合に、それを取得するためにはどうすれば良いか。 `ActivatedRoute` モジュールを使用するのが良い。
