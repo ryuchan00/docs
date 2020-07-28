@@ -235,4 +235,4 @@ fatal: unable to access 'https://github.com/pepabo/active_merchant-epsilon.git/'
 Tasks: TOP => release => release:source_control_push                                                                                                                                     (See full trace by running task with --trace)               
 ```
 
-いくつもの原因が重なった面倒な奴だった。GitHubにはhttpを使用している。まずMacのkeychainに入れたはずのGitHubへのPersonal Access Tokenが間違っていた。何かの拍子に書き換えてしまったようだ。とりあえず削除して、改めてリリースコマンドを叩いてPersonal Access Tokenを入力してみると、RubyGemsへの権限が
+いくつもの原因が重なった面倒な奴だった。GitHubにはhttpを使用している。まずMacのkeychainに入れたはずのGitHubへのPersonal Access Tokenが間違っていた。何かの拍子に書き換えてしまったようだ。とりあえず削除して、改めてリリースコマンドを叩いてPersonal Access Tokenを入力してみると、RubyGemsへの権限がないようだ。以前はできたけど、何かの拍子でcredential情報を消してしまったようだったので、改めて作り直したらいけた。あまり再現性はないが記録を残しておく。
