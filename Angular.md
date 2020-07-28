@@ -223,3 +223,19 @@ component.html
 ### declarations
 
 AppModuleクラスの中に@NgModuleでこれー他は存在する。declarationは、Angularアプリケーションに含まれるクラスはどれなのか指定している。
+
+## Angular Material
+
+### フラッシュメッセージの出し方
+
+snackBarを使用する。コンポーネントを作成しない場合は以下のような感じにする。
+
+```js
+this.snackBar.open('msg', 'close', {
+                  duration: 2000
+                }).afterDismissed().subscribe(()=>{
+                  this.router.navigate(['']);
+                });
+```
+
+[Angular show snackbar after navigation - Stack Overflow](https://stackoverflow.com/questions/56459195/angular-show-snackbar-after-navigation)
