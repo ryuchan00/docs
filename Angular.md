@@ -262,3 +262,13 @@ AppModuleクラスの中に@NgModuleでこれー他は存在する。declaration
 `RouterTestingModule` をインポートする。
 
 [Angular - RouterTestingModule](https://angular.io/api/router/testing/RouterTestingModule)
+
+## ActiveReocrdの従属レコードに対してデフォルトでscopeを設定する
+
+Userモデルに従属しているAddressモデルを例に出す。
+
+```
+# user.addressesで必ずpost_codeで昇順ソートされる
+has_many :addresses, -> { order(post_code: :asc) }, dependent: :destroy
+```
+d
