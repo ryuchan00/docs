@@ -24,6 +24,35 @@ nodenv local 12.16.1
 
 https://v5.material.angular.io/
 
+### フラッシュメッセージの出し方
+
+snackBarを使用する。コンポーネントを作成しない場合は以下のような感じにする。
+
+```js
+this.snackBar.open('msg', 'close', {
+                  duration: 2000
+                }).afterDismissed().subscribe(()=>{
+                  this.router.navigate(['']);
+                });
+```
+
+[Angular show snackbar after navigation - Stack Overflow](https://stackoverflow.com/questions/56459195/angular-show-snackbar-after-navigation)
+
+
+### mat-selectタグで変更を検知したい
+
+通常の `(chage)=` みたいなHTMLelemtntのchageイベントは使用できなかった。 `selectionChange`を使用する。
+
+```
+<mat-select formControlName="inputType" (selectionChange)="OnInputTypeChange(optionField)">
+```
+
+[Select | Angular Material](https://material.angular.io/components/select/api)
+
+stackoverflowの回答よりヒントを得た。
+
+[typescript - How can I get new selection in "select" in Angular 2? - Stack Overflow](https://stackoverflow.com/questions/33700266/how-can-i-get-new-selection-in-select-in-angular-2)
+
 ## Angularの日本語公式ドキュメント
 
 https://angular.jp/
@@ -227,22 +256,6 @@ component.html
 ### declarations
 
 AppModuleクラスの中に@NgModuleでこれー他は存在する。declarationは、Angularアプリケーションに含まれるクラスはどれなのか指定している。
-
-## Angular Material
-
-### フラッシュメッセージの出し方
-
-snackBarを使用する。コンポーネントを作成しない場合は以下のような感じにする。
-
-```js
-this.snackBar.open('msg', 'close', {
-                  duration: 2000
-                }).afterDismissed().subscribe(()=>{
-                  this.router.navigate(['']);
-                });
-```
-
-[Angular show snackbar after navigation - Stack Overflow](https://stackoverflow.com/questions/56459195/angular-show-snackbar-after-navigation)
 
 ## Routerモジュールをテストするとき
 
