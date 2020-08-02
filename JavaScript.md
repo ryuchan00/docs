@@ -39,3 +39,20 @@ location.href = 'https://hoge.jp/users/' + id
 [javascriptで転送（リダイレクト）を行う方法と注意点 | SEO研究所サクラサクラボ](https://www.sakurasaku-labo.jp/blogs/javascript-redirect)
 
 
+## とある条件の配列を作成する
+
+下記のイメージされた配列を作成したい
+
+```
+data = [{profiles: {name: "graham", age: 27}, {name: "setsuna", age: 16}}];
+// これを ["graham", "setsuna"] みたいにしたい
+```
+
+```js
+// 以下のように書く
+Array.from(data.profiles, (profile) => 
+  profile.name
+)
+```
+
+うーん、あんまりイメージ例はよくないかも
