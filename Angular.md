@@ -271,4 +271,27 @@ Userモデルに従属しているAddressモデルを例に出す。
 # user.addressesで必ずpost_codeで昇順ソートされる
 has_many :addresses, -> { order(post_code: :asc) }, dependent: :destroy
 ```
-d
+
+## 親のコンポーネントに対してマウスイベントの伝搬を停止する
+
+`click` イベントが親のコンポーネントで書いた `click` イベントも一緒に発火してしまった。おそらくコンポーネントの問題ではなく、JavaScriptの問題であるが、Angularアプリケーションの作成中に遭遇したものなので、こちらに記載しておく。以下が実際に遭遇した例である。
+
+```
+<mat-icon aria-hidden="false" (click)="onDeleteUserClick; $event.stopPropagation()">delete</mat-icon>
+```
+
+対策としてはclickイベント発火後に、 `$event.stopPropagation()` を実行してあげると、イベントの伝搬がストップした。
+
+[angular — マウスイベントの伝播を停止する](https://www.it-swarm.dev/ja/angular/%e3%83%9e%e3%82%a6%e3%82%b9%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88%e3%81%ae%e4%bc%9d%e6%92%ad%e3%82%92%e5%81%9c%e6%ad%a2%e3%81%99%e3%82%8b/824110400/)
+
+その他とMDN web docsを見てみると、ドキュメントを見つけた。 `stopPropagation()` は現在のイベントのキャプチャリングまたはバブリングの過程における伝搬を抑止する。
+
+[Event.stopPropagation() - Web API | MDN](https://developer.mozilla.org/ja/docs/Web/API/Event/stopPropagation)
+
+バブリングとキャプチャリングの情報をこちらを参照
+
+バブリング
+
+> 要素上でイベントが起きると、最初にその上のハンドラが実行され、次にその親のハンドラが実行され、他の祖先に到達するまでそれらが行われます。
+
+[バブリング と キャプチャリング](https://ja.javascript.info/bubbling-and-capturing)
