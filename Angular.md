@@ -53,6 +53,10 @@ stackoverflowの回答よりヒントを得た。
 
 [typescript - How can I get new selection in "select" in Angular 2? - Stack Overflow](https://stackoverflow.com/questions/33700266/how-can-i-get-new-selection-in-select-in-angular-2)
 
+### フォームのエラーメッセージ
+
+[Form field | Angular Material](https://material.angular.io/components/form-field/overview#error-messages)
+
 ## Angularの日本語公式ドキュメント
 
 https://angular.jp/
@@ -295,3 +299,11 @@ has_many :addresses, -> { order(post_code: :asc) }, dependent: :destroy
 > 要素上でイベントが起きると、最初にその上のハンドラが実行され、次にその親のハンドラが実行され、他の祖先に到達するまでそれらが行われます。
 
 [バブリング と キャプチャリング](https://ja.javascript.info/bubbling-and-capturing)
+
+## フォームのバリデーション
+
+[Angular 日本語ドキュメンテーション - Validating form input](https://angular.jp/guide/form-validation)
+
+## ngIfやngForのためだけにdivを設置するのをやめるng-content
+
+[Angularの便利タグng-container, ng-content, ng-template - Qiita](https://qiita.com/shibukawa/items/c8c7fd22c1054348db3a#ng-content)
