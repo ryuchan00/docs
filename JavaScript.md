@@ -56,3 +56,17 @@ Array.from(data.profiles, (profile) =>
 ```
 
 うーん、あんまりイメージ例はよくないかも
+
+## 配列の中でのmax値を取得する`
+
+```
+console.log(Math.max(...array1));
+// expected output: 3
+
+```
+
+[Math.max() - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math/max)
+
+`...` はスプレッド構文、端折って説明すると配列を可変長引数にしたりできる。ES2015から使用できる。
+
+[スプレッド構文 - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
