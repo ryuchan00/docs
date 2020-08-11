@@ -307,3 +307,11 @@ has_many :addresses, -> { order(post_code: :asc) }, dependent: :destroy
 ## ngIfやngForのためだけにdivを設置するのをやめるng-content
 
 [Angularの便利タグng-container, ng-content, ng-template - Qiita](https://qiita.com/shibukawa/items/c8c7fd22c1054348db3a#ng-content)
+
+## 複数インプットを同時にバリデーションするcross-validation
+
+[Angular 日本語ドキュメンテーション - Validating form input](https://angular.jp/guide/form-validation#adding-cross-validation-to-template-driven-forms)
+
+mat-errorとの組み合わせについて
+
+[NOTE: The content is relevant to Angular Material 2+. The title says Angular Material 7, since it’s the latest version out, and it’s intended to attract attention (we always want to read up-to-date information).](undefined)
