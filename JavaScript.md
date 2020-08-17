@@ -70,3 +70,21 @@ console.log(Math.max(...array1));
 `...` はスプレッド構文、端折って説明すると配列を可変長引数にしたりできる。ES2015から使用できる。
 
 [スプレッド構文 - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+## オブジェクトのコピー
+
+JavaScriptは引数は参照渡しになるので、オブジェクトのコピーが必要になる時がある。
+
+[ES6でオブジェクトのコピー - Qiita](https://qiita.com/yamayamasan/items/2afed39e1a34edc44779)
+
+[Object.assign() - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+
+lodashの使用
+
+[typescript - Deep copy of Angular Reactive Form? - Stack Overflow](https://stackoverflow.com/questions/48308414/deep-copy-of-angular-reactive-form/49743369)
+
+[Lodash Documentation](https://lodash.com/docs/4.17.15#cloneDeep)
+
+[Angular: Deep copy a reactive form - Stack Overflow](https://stackoverflow.com/questions/57387998/angular-deep-copy-a-reactive-form)
+
+[Using lodash in Angular 4 - Stack Overflow](https://stackoverflow.com/questions/48836140/using-lodash-in-angular-4/48836201)
