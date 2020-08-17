@@ -82,3 +82,7 @@ pip install pipenv
 ```
 
 [Pythonで、Pipenvを使う - Narito Blog](https://blog.narito.ninja/detail/58/)
+
+## Macのterminalの2バイトもじがばける
+
+[terminalで日本語が文字化けする - Apple コミュニティ](https://discussionsjapan.apple.com/thread/10147279)
