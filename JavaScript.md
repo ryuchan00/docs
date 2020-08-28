@@ -88,3 +88,13 @@ lodashの使用
 [Angular: Deep copy a reactive form - Stack Overflow](https://stackoverflow.com/questions/57387998/angular-deep-copy-a-reactive-form)
 
 [Using lodash in Angular 4 - Stack Overflow](https://stackoverflow.com/questions/48836140/using-lodash-in-angular-4/48836201)
+
+## 正規表現
+
+[正規表現 - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Regular_Expressions)
+
+```js
+// 数値のみ、1桁から11桁
+\d{1,11}
+```
+
