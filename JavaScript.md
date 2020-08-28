@@ -91,10 +91,30 @@ lodashの使用
 
 ## 正規表現
 
-[正規表現 - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Regular_Expressions)
+[正規表現 - JavaScript | MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Regular_Expressions)s
 
 ```js
 // 数値のみ、1桁から11桁
 \d{1,11}
 ```
 
+https://javascript.programmer-reference.com/js-string-regexp/
+
+testメソッドでマッチの判定できる
+
+```js
+//正規表現パターン（半角英数４桁に一致）
+var regex = new RegExp(/^\w{4}$/);
+
+//判定する文字列
+var str = "hoge";
+
+//判定
+if (regex.test(str)) {
+  alert("正規表現パターンに一致しています。");
+}else{
+  alert("正規表現パターンに一致していません。");
+}
+```
+
+JSの `pattrn` 属性で使用した。 `pattern="\d{1,11}"`
