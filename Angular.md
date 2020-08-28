@@ -314,4 +314,33 @@ has_many :addresses, -> { order(post_code: :asc) }, dependent: :destroy
 
 mat-errorとの組み合わせについて
 
-[NOTE: The content is relevant to Angular Material 2+. The title says Angular Material 7, since it’s the latest version out, and it’s intended to attract attention (we always want to read up-to-date information).](undefined)
+https://itnext.io/materror-cross-field-validators-in-angular-material-7-97053b2ed0cf
+
+## maxlengthとtype="number"は一緒に使えない
+
+https://stackoverflow.com/questions/18510845/maxlength-ignored-for-input-type-number-in-chrome
+
+## maxlengthのバリデーションの例
+
+https://www.concretepage.com/angular-2/angular-2-4-minlength-and-maxlength-validation-example#maxlength
+
+MaxLngthValidatorを使用する
+
+https://angular.jp/api/forms/MaxLengthValidator
+
+## subscribeのエラー処理
+
+https://programming-jissen.com/how-to-handle-errors-with-angular-subscribe-method/
+
+```js
+getError(): void {
+  this.heroService.getHeroes()
+  .subscribe(
+    heroes => {
+      console.log('OK！');
+      this.heroes = heroes;
+    }, error => {
+      console.log('エラーですよ');
+    });
+}
+```
