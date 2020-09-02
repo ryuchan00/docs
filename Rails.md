@@ -358,3 +358,16 @@ require 'application_name/exceptions'
 ```rb
 raise ApplicationName::InvalidUserError
 ```
+
+## Basic認証の掛け方
+
+```rb
+  config.middleware.use Rack::Auth::Basic do |username, password|
+    ActiveSupport::SecurityUtils.secure_compare(username, ENV["BASIC_AUTH_USERNAME"]) &
+      ActiveSupport::SecurityUtils.secure_compare(password, ENV["BASIC_AUTH_PASSWORD"])
+  end
+```
+
+このセキュリティ文章は面白い
+
+https://blog.ssrf.in/post/about-rack-utils-secure_compare/
