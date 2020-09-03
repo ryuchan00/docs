@@ -267,15 +267,6 @@ AppModuleクラスの中に@NgModuleでこれー他は存在する。declaration
 
 [Angular - RouterTestingModule](https://angular.io/api/router/testing/RouterTestingModule)
 
-## ActiveReocrdの従属レコードに対してデフォルトでscopeを設定する
-
-Userモデルに従属しているAddressモデルを例に出す。
-
-```
-# user.addressesで必ずpost_codeで昇順ソートされる
-has_many :addresses, -> { order(post_code: :asc) }, dependent: :destroy
-```
-
 ## 親のコンポーネントに対してマウスイベントの伝搬を停止する
 
 `click` イベントが親のコンポーネントで書いた `click` イベントも一緒に発火してしまった。おそらくコンポーネントの問題ではなく、JavaScriptの問題であるが、Angularアプリケーションの作成中に遭遇したものなので、こちらに記載しておく。以下が実際に遭遇した例である。
