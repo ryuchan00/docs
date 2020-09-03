@@ -371,3 +371,14 @@ raise ApplicationName::InvalidUserError
 このセキュリティ文章は面白い
 
 https://blog.ssrf.in/post/about-rack-utils-secure_compare/
+
+## ActiveReocrdの従属レコードに対してデフォルトでscopeを設定する
+
+Userモデルに従属しているAddressモデルを例に出す。
+
+```
+# user.addressesで必ずpost_codeで昇順ソートされる
+has_many :addresses, -> { order(post_code: :asc) }, dependent: :destroy
+```
+
+
