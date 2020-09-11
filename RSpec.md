@@ -102,3 +102,16 @@ end
 ```
 
 [使えるRSpec入門・その3「ゼロからわかるモック（mock）を使ったテストの書き方」 - Qiita](https://qiita.com/jnchito/items/640f17e124ab263a54dd)
+
+## Jsonの中身を確認するテストを書く
+
+rspec-json_matcherを使用する
+
+使い方
+
+https://github.com/r7kamura/rspec-json_matcher#usage
+
+良い記事
+
+https://qiita.com/ma2shita/items/a75e43512b43cde712e6
+
