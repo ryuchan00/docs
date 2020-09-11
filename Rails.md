@@ -381,4 +381,12 @@ Userモデルに従属しているAddressモデルを例に出す。
 has_many :addresses, -> { order(post_code: :asc) }, dependent: :destroy
 ```
 
+## Faradayのエラーレスポンス
 
+初期ではHTTPステータスにより例外が上がらないので、上がるように設定を変える
+
+https://gist.github.com/YuheiNakasaka/2779551#%E3%83%9F%E3%83%89%E3%83%AB%E3%82%A6%E3%82%A7%E3%82%A2%E3%82%92%E4%BD%BF%E3%81%86
+
+http://nekorails.hatenablog.com/entry/2018/09/28/152745#038-FaradayResponseRaiseError---%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%A7%E4%BE%8B%E5%A4%96%E3%82%92%E6%8A%95%E3%81%92%E3%82%8B
+
+https://qiita.com/dany1468/items/2d5e18dee84225ede77d
