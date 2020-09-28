@@ -390,3 +390,18 @@ https://gist.github.com/YuheiNakasaka/2779551#%E3%83%9F%E3%83%89%E3%83%AB%E3%82%
 http://nekorails.hatenablog.com/entry/2018/09/28/152745#038-FaradayResponseRaiseError---%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%A7%E4%BE%8B%E5%A4%96%E3%82%92%E6%8A%95%E3%81%92%E3%82%8B
 
 https://qiita.com/dany1468/items/2d5e18dee84225ede77d
+
+## Docker起動時のbinding.pryを用いたデバッグ
+
+適当な箇所に対して `binding.pry` を挟んでおく。
+
+
+```sh
+# imageのnameを調べる
+docker ps
+# attachしてrails serverしているプロセスを表示する
+docker attach [image name]
+
+```
+
+これでbinding.pryで止まっているので色々デバッグする
