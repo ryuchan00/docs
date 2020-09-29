@@ -41,3 +41,10 @@ ALTER TABLEはテーブルの構造を変更するSQL、ALTERの種類によっ�
 メタデータのロックについて
 
 https://dev.mysql.com/doc/refman/5.6/ja/metadata-locking.html
+
+
+## テーブルの結合で迷ったら
+
+inner join, left join, right join
+
+https://qiita.com/ngron/items/db4947fb0551f21321c0
