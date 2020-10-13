@@ -339,3 +339,7 @@ getError(): void {
 ## @Opuputデコレータ
 
 双方向データバインディングのために使用する
+
+## Angularのsleep処理
+
+[Angular8のtypescriptでsleep処理を実装する | SaToLABO](https://satolabo.net/2019/12/14/angular-typescript-sleep/)
