@@ -40,3 +40,5 @@ print_r($card);
 //    [type] => mastercard
 //)
 ```
+
+第一引数は数値でも文字列でも問題はない。
