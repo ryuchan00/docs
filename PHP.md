@@ -1,3 +1,13 @@
+# composerの使用方法
+
+`composer install` はcomposer.lockファイルがないときにlockファイルを作成して、ライブラリを `./vendor/` に置く。
+
+`composer update` はcomposer.jsonに追加してときにlockファイルに書き込んでくれる。ただupdateするだけだと、jsonに書かれた全てのパッケージを更新するので、場合によっては `composer update [パッケージネーム]` のように指定する必要もある。
+
+普段使用しているbundlerと仕様が違って、久しぶりに使用するとあれ？となった。癖でinstallしてもlockが更新されない。。。となった。
+
+[Composerの導入＆使い方（初心者の復習用） - Qiita](https://qiita.com/suke/items/770bccf8a43f9247daf5)
+
 # クレジットカードナンバーのバリデーション
 
 今回PHP5系でやらなきゃならなかったので以下のライブラリを使用した。PHP7系であればもうちょっと選択肢がある。
