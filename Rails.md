@@ -405,3 +405,13 @@ docker attach [image name]
 ```
 
 これでbinding.pryで止まっているので色々デバッグする
+
+## base64エンコードデータを受け取った時のパース
+
+https://python5.com/q/mtkfaoir
+
+お手軽でこんな感じで実装した
+
+```rb
+Base64.strict_decode64(file['data:text/csv;base64,'.length..-1])
+```
