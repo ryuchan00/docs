@@ -343,3 +343,25 @@ getError(): void {
 ## Angularのsleep処理
 
 [Angular8のtypescriptでsleep処理を実装する | SaToLABO](https://satolabo.net/2019/12/14/angular-typescript-sleep/)
+
+## base64エンコードしたデータをAPIへ送る
+
+```ts
+    const fr = new FileReader();
+    fr.onload = (e) => {
+      // e.target.resultがbase64エンコードされた文字列
+      console.log(e.target.result);
+      this.apiClient
+        .postData({data: e.target.result})
+        .subscribe(
+          () => {
+            // ファイルのインポートに成功
+          },
+          () => {
+            // ファイルのインポートに失敗
+            );
+          }
+        );
+    };
+    fr.readAsDataURL(file);  // fileはFileオブジェクト
+```
