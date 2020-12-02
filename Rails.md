@@ -415,3 +415,12 @@ https://python5.com/q/mtkfaoir
 ```rb
 Base64.strict_decode64(file['data:text/csv;base64,'.length..-1])
 ```
+
+## Railsコンテナがmysqlクライアントが見つからなくて壊れたら
+
+https://mozy-ok.hatenablog.com/entry/2019/07/23/173210
+
+```
+docker-compose run --rm hoge bin/bundle exec gem uninstall mysql2
+docker-compose run --rm web bin/bundle install --no-cache
+```
