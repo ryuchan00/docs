@@ -65,4 +65,5 @@ SELECT
 ```
 
 [全ては時の中に… : 【SQL】CASE式でNULLかどうかを判定する](http://blog.livedoor.jp/akf0/archives/51469844.html)
+
 [MySQL CASE文でNULLの分岐はコツがいる - Qiita](https://qiita.com/ayies128/items/8d5ddb39af83fe5138ff)
