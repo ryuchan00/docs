@@ -48,3 +48,21 @@ https://dev.mysql.com/doc/refman/5.6/ja/metadata-locking.html
 inner join, left join, right join
 
 https://qiita.com/ngron/items/db4947fb0551f21321c0
+
+innter join,right joinは新たに結合するテーブルが基準、新たに結合するテーブルにレコードがないと、レコードが落ちる。
+left joinはその逆で、元にある結合先のテーブルが基準、結合先のレコードがないと新たに結合するテーブルのレコード情報は取得できない。
+
+## カラムを場合分けで取得する
+
+CASEを使用する。下記の例は、user_detailsテーブルのnameレコードがnullだった場合は、usersテーブルのnameを参照し、そうではなかったらuser_detailsテーブルのnameを参照して、nameカラムとして扱う。こうすることで、SQLで処理した後に改めて配列を探索する必要がなくなる。
+
+```sql
+SELECT
+  CASE
+    WHEN (user_details.name IS NULL) THEN users.name
+    ELSE user_details.name
+  END as name,
+```
+
+[全ては時の中に… : 【SQL】CASE式でNULLかどうかを判定する](http://blog.livedoor.jp/akf0/archives/51469844.html)
+[MySQL CASE文でNULLの分岐はコツがいる - Qiita](https://qiita.com/ayies128/items/8d5ddb39af83fe5138ff)
