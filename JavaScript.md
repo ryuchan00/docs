@@ -1,3 +1,8 @@
+## ESとは
+
+ES5: IEに対応しているJavaScript
+ES2015(ES6) (2015年~): IEに非対応でモダンな書き方ができるJavaScript
+
 ## 文字の置き換え
 
 ```js
