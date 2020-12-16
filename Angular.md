@@ -365,3 +365,10 @@ getError(): void {
     };
     fr.readAsDataURL(file);  // fileはFileオブジェクト
 ```
+## ローディング処理を実装する
+
+Angular Materialを使用する。
+
+この参考は、app.moduleeee.tsにもimportしているが、必要ない。
+
+[Angular Materialでローディング（処理中）を実装する - Qiita](https://qiita.com/shinoshu/items/9d9480d1499c14d2d6d0)
