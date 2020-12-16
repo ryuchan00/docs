@@ -427,7 +427,7 @@ docker-compose run --rm web bin/bundle install --no-cache
 
 ## Railsの関連テーブルの削除を速くする
 
-`dependent: :delete_all` を使用する。ただし孫レコードまでは削除できないので注意する。
+`dependent: :delete_all` を使用する。ただし孫レコードまでは削除できないので注意する。delete文を1つだけ発行するためである。そのため孫レコードまでの関連を削除する場合は、子レコードとの関連を `dependent: :destroy` 、子レコードから孫レコードの関連を `dependent: :delete_all` にする。
 
 ```
 
