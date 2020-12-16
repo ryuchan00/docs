@@ -101,3 +101,5 @@ nkfコマンドを使用する
 ❯ nkf -g query_result_fail.csv
 Shift_JIS
 ```
+
+[macでファイルの文字コードを変換する『nkfコマンド』の使い方とオプション一覧 | かわたま.net](http://kawatama.net/others/mac/1754)
