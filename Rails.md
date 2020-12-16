@@ -424,3 +424,16 @@ https://mozy-ok.hatenablog.com/entry/2019/07/23/173210
 docker-compose run --rm hoge bin/bundle exec gem uninstall mysql2
 docker-compose run --rm web bin/bundle install --no-cache
 ```
+
+## Railsの関連テーブルの削除を速くする
+
+`dependent: :delete_all` を使用する。ただし孫レコードまでは削除できないので注意する。
+
+```
+
+class User < ApplicationRecord
+  has_many :microposts, dependent: :delete_all
+end
+```
+
+[Railsで1000件のデータ削除を99%早くするには(初心者向け) - Qiita](https://qiita.com/johnslith/items/d20968809b126e92f6e8)
