@@ -437,3 +437,19 @@ end
 ```
 
 [Railsで1000件のデータ削除を99%早くするには(初心者向け) - Qiita](https://qiita.com/johnslith/items/d20968809b126e92f6e8)
+
+## バリデーションでcontextの条件に当てはまらないときは実行する
+
+`unless` を使用する。
+
+```rb
+# userモデル
+validates :name, presence: true, unless: -> { validation_context == :import }
+```
+
+これで下記の時はnameのバリデーションが行われない。
+
+```rb
+user = User.new(name: '')
+user.valid?(:import)
+```
