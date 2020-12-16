@@ -60,3 +60,23 @@ preg_replace('/[^0-9]/', '', $string);
 ```
 
 `[^0-9]` で半角数字以外を指定している。したがって全角にする場合は工夫が必要。
+
+## array_searchを用いてarrayをマッチングキーにする
+
+```php
+// ループの中での話
+// $settings = array(array('a','b'),array('c','d'));
+// と定義されていたら、$settings_keyがarray('a','b')はマッチする。
+
+$key = array_search($settings_key, $settings);
+if ($key === false) {
+    // アンマッチ
+}
+
+$settings_key[] = array(
+    $number,
+    $title]
+);
+```
+
+[PHP: array_search - Manual](https://www.php.net/manual/ja/function.array-search.php)
