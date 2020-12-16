@@ -103,3 +103,5 @@ Shift_JIS
 ```
 
 [macでファイルの文字コードを変換する『nkfコマンド』の使い方とオプション一覧 | かわたま.net](http://kawatama.net/others/mac/1754)
+
+[nkfでCP932←→UTF-8の変換をする - Qiita](https://qiita.com/aosho235/items/6976247eb057ccc604c5)
