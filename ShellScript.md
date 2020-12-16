@@ -83,6 +83,21 @@ pip install pipenv
 
 [Pythonで、Pipenvを使う - Narito Blog](https://blog.narito.ninja/detail/58/)
 
-## Macのterminalの2バイトもじがばける
+## Macのterminalの2バイト文字が化ける
 
 [terminalで日本語が文字化けする - Apple コミュニティ](https://discussionsjapan.apple.com/thread/10147279)
+
+## ファイルの文字コードを変換する
+
+nkfコマンドを使用する
+
+```
+~/Downloads
+# -sオプションはShift-Jisに変換する、--cp932オプションを使用することで、cp932に準拠したShift-Jisになる
+❯ nkf -s --cp932 --overwrite query_result_fail.csv
+
+~/Downloads
+# 変換できているか確認する、-gオプションを使用する
+❯ nkf -g query_result_fail.csv
+Shift_JIS
+```
