@@ -453,3 +453,17 @@ validates :name, presence: true, unless: -> { validation_context == :import }
 user = User.new(name: '')
 user.valid?(:import)
 ```
+
+## ベンチマークの計測
+
+[Editing docs/Rails.md at master · ryuchan00/docs](https://github.com/ryuchan00/docs/edit/master/Rails.md)
+
+```rb
+require 'benchmark'
+
+result = Benchmark.realtime do
+  # 処理
+end
+puts "処理概要 #{result}s"
+
+```
