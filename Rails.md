@@ -467,3 +467,57 @@ end
 puts "処理概要 #{result}s"
 
 ```
+
+## tasksをテストする
+
+以下のようなタスクをテストする。
+
+lib/tasks/import.rake
+
+```rb
+namespace :import do
+  desc "csvのインポート機能"
+  task csv_import: :environment do
+    CSV.foreach("lib/tasks/hoge.csv", encoding: "CP932:UTF-8") { |row| p row }
+  end
+end
+```
+
+spec/support/rake_helper.rb
+
+テストでrakeタスクを動かしたい場合は、load_tasksメソッドを使用する。
+
+```rb
+require 'rake'
+
+RSpec.configure do |config|
+  config.before :context, type: :task do
+    Rails.application.load_tasks
+  end
+
+  config.before :example, type: :task do
+    Rake.application.tasks.each(&:reenable)
+  end
+end
+```
+
+spec/lib/tasks/import_spec.rb
+
+```rb
+require 'rails_helper'
+
+RSpec.describe 'hoge', type: :task do
+  describe 'fuga' do
+    subject(:task) { Rake.application['import:csv_import'] }
+
+    it 'confirmation' do
+      expect { task.invoke }.to change { User.count }.from(0).to(1)
+    end
+
+  end
+end
+```
+
+[RailsでRakeタスクをシンプルかつ効果的にテストする手法 - Qiita](https://qiita.com/aeroastro/items/c97bd26ce8b8818b6bed)
+
+[ruby - Testing Rake task with Rspec with Rails environment - Stack Overflow](https://stackoverflow.com/questions/12686282/testing-rake-task-with-rspec-with-rails-environment/19086080)
