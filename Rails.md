@@ -538,6 +538,8 @@ end
 Rake.application['hoge:csv_import'].invoke(1234, 'hoge.txt')
 ```
 
+[Rake タスクの作り方（引数を複数設定してみる） - Qiita](https://qiita.com/yoshiokaCB/items/c97ba878469701c3d99b)
+
 ## enumの元の値を取得する
 
 ```rb
