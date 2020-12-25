@@ -522,6 +522,22 @@ end
 
 [ruby - Testing Rake task with Rspec with Rails environment - Stack Overflow](https://stackoverflow.com/questions/12686282/testing-rake-task-with-rspec-with-rails-environment/19086080)
 
+## rakeで引数をつける
+
+```rb
+# 実行方法
+# rails hoge:csv_import[1234,'hoge.txt']
+task :csv_import, ['account_id', 'filepath'] => :environment do |task, args|
+  puts args['account_id'] # => 1234
+  puts args['filepath'] # => 'hoge.txt'
+end
+```
+
+```rb
+# RSpecのテストでの書き方
+Rake.application['hoge:csv_import'].invoke(1234, 'hoge.txt')
+```
+
 ## enumの元の値を取得する
 
 ```rb
