@@ -521,3 +521,13 @@ end
 [RailsでRakeタスクをシンプルかつ効果的にテストする手法 - Qiita](https://qiita.com/aeroastro/items/c97bd26ce8b8818b6bed)
 
 [ruby - Testing Rake task with Rspec with Rails environment - Stack Overflow](https://stackoverflow.com/questions/12686282/testing-rake-task-with-rspec-with-rails-environment/19086080)
+
+## enumの元の値を取得する
+
+```rb
+#user.{attribute_name}_before_type_cast
+#例
+user.sex_before_type_cast
+```
+
+[Rails5でenumの文字列ではなく、実態値が取得したい場合は {{enumの名前}}_before_type_cast - コード日進月歩](https://shinkufencer.hateblo.jp/entry/2018/12/12/233000)
