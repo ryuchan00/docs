@@ -372,3 +372,51 @@ Angular Materialを使用する。
 この参考は、app.moduleeee.tsにもimportしているが、必要ない。
 
 [Angular Materialでローディング（処理中）を実装する - Qiita](https://qiita.com/shinoshu/items/9d9480d1499c14d2d6d0)
+
+## 自主プロジェクトのエラー解消
+
+[[社内ハンズオン資料] Angular+Firebaseで作るTODOアプリケーション | Developers.IO](https://dev.classmethod.jp/articles/handson-doc-angularfirebase-todo-app/)をやっている時に発生した。
+
+`ng build` やserve、deployしたら以下のようなエラーが出て、Angularのコードがbuildできなくて困った。原因は、pacage.jsonのライブラリのインストールがyarn addしたタイミングでなぜか正常にディレクトリに配置されないことである。なので `yarn install` をすると解決する。
+
+```log
+❯ ng build
+✔ Browser application bundle generation complete.
+
+Error: ./src/styles.scss
+Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):
+ModuleBuildError: Module build failed (from ./node_modules/css-loader/dist/cjs.js):
+TypeError: (0 , _schemaUtils.default) is not a function
+    at Object.loader (/Users/yamakawa00/src/github.com/ryuchan00/coyote/node_modules/css-loader/dist/index.js:36:28)
+    at /Users/yamakawa00/src/github.com/ryuchan00/coyote/node_modules/webpack/lib/NormalModule.js:316:20
+    at /Users/yamakawa00/src/github.com/ryuchan00/coyote/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /Users/yamakawa00/src/github.com/ryuchan00/coyote/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+ @ multi ./src/styles.scss styles[0]
+
+Error: ./src/styles.scss (./node_modules/css-loader/dist/cjs.js??ref--13-1!./node_modules/postcss-loader/dist/cjs.js??ref--13-2!./node_modules/resolve-url-loader??ref--13-3!./node_modules/sass-loader/dist/cjs.js??ref--13-4!./src/styles.scss)
+Module build failed (from ./node_modules/css-loader/dist/cjs.js):
+TypeError: (0 , _schemaUtils.default) is not a function
+    at Object.loader (/Users/yamakawa00/src/github.com/ryuchan00/coyote/node_modules/css-loader/dist/index.js:36:28)
+```
+
+auth.service.tsに
+
+```
+import { auth } from 'firebase';
+```
+
+と書いてもエラーになる。どうやら `yarn add firebase` で追加するfirebaseのパッケージの最新版はこの書き方ではないらしい。
+
+```
+import firebase from 'firebase/app';
+//略
+  login() {
+    this.afAuth
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then((result) => {
+        console.log(result);
+      });
+  }
+```
+
+firebase/appよりインポートしてあげると良さそう。
