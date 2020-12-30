@@ -420,3 +420,22 @@ import firebase from 'firebase/app';
 ```
 
 firebase/appよりインポートしてあげると良さそう。
+
+## Firebaseより条件を指定してdocを取得する方法
+
+whereを使用する。
+
+[Cloud Firestore で単純なクエリと複合クエリを実行する  |  Firebase](https://firebase.google.com/docs/firestore/query-data/queries)
+
+```ts
+this.afs.firestore.collection('players').where('name', '==', 'hoge').get().then(a => {
+  // aはPromiseオブジェクトっぽい
+  console.log('a');
+  a.forEach(b => {
+    console.log('b');
+    console.log(b);
+    // v0b4SC8EzGcNEhrbOnXJ  =>  {name: "hoge", id: "v0b4SC8EzGcNEhrbOnXJ"}
+    console.log(b.id, " => ", b.data());
+  })
+});
+```
