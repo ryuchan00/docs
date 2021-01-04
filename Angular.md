@@ -8,7 +8,7 @@ https://github.com/nodenv/nodenv#installation
 
 https://github.com/nodenv/node-build#installation
 
-```
+```sh
 brew install nodenv
 mkdir -p "$(nodenv root)"/plugins
 cd ~/.nodenv
@@ -439,3 +439,25 @@ this.afs.firestore.collection('players').where('name', '==', 'hoge').get().then(
   })
 });
 ```
+
+## expected call-signature: 'function' to have a typedef の対処法
+
+関数内にreturnがないためにtslintによって表示されるエラー、functionの戻り値をvoidにすれば良い。
+
+## Firestoreを使用する上で参考にした資料
+
+[angular + firebase逆引きサンプル集 - Qiita](https://qiita.com/MoguraStore/items/d5f127fa00e067e6fb22)
+
+[angularfire/install-and-setup.md at master · angular/angularfire](https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md)
+
+AngularのFirestoreのライブラリ
+
+[angularfire/querying-collections.md at master · angular/angularfire](https://github.com/angular/angularfire/blob/master/docs/firestore/querying-collections.md)
+
+AngularのFirestoreのライブラリの複雑なクエリはこちらを見る
+
+[Firestoreのデータ操作(取得, 追加, 更新, 削除) - わくわくBank](https://www.wakuwakubank.com/posts/723-firebase-firestore-query/)
+
+## Firestoreで大規模データを処理するときの実装
+
+[トランザクションとバッチ書き込み  |  Firebase](https://firebase.google.com/docs/firestore/manage-data/transactions#batched-writes)
