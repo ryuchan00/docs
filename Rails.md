@@ -112,7 +112,7 @@ end
 
 ## エラーキャッチの方法
 
-rescueでもいいが洗礼された方法として `rescue_from` が存在する。
+rescueでもいいが洗礼された方法として `rescue_from` が存在する。コントローラ全体で1つの例外処理を書くので済む
 
 ```rb
 class ApplicationController < ActionController::Base
@@ -126,7 +126,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-ちなみにblockを渡すこともできる。こうすることによってエラーオブジェクトを活用することができる。
+ちなみにblockを渡すこともできる。こうすることによって例外オブジェクトを活用することができる。
 
 ```rb
 rescue_from ActiveRecord::RecordNotFound do |e|
@@ -138,7 +138,7 @@ end
 
 ## apiを作成するときのエラーレスポンスの例
 
-社でエラーレスポンスを悩んだ時に良い例があった。titleにはエラータイトルを、detailにはタイトルに対しての詳細を書区と良いみたい。
+社でエラーレスポンスを悩んだ時に良い例があった。titleにはエラータイトルを、detailにはタイトルに対しての詳細を書くと良いみたい。
 
 ```json
 {
