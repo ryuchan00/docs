@@ -67,3 +67,34 @@ SELECT
 [全ては時の中に… : 【SQL】CASE式でNULLかどうかを判定する](http://blog.livedoor.jp/akf0/archives/51469844.html)
 
 [MySQL CASE文でNULLの分岐はコツがいる - Qiita](https://qiita.com/ayies128/items/8d5ddb39af83fe5138ff)
+
+## indexの付け方
+
+> インデックスとは、データベース内から特定のデータを検索しやすくするための仕組みです。
+インデックスにはいくつか方式がありますが、MySQLで使われているのはB-Treeという方式です。B-Treeの仕組みをざっくりと説明すると、インデックスを貼られたカラムは検索しやすいようツリー構造に加工され、テーブル本体とは別の場所に保存されます。検索する際にはその加工したデータの方を見に行くことで、高速化を図っているのです。
+インデックスを貼るメリットは、先ほど述べたとおり検索の高速化です。適切なカラムにインデックスを貼っておくことにより、インデックスなしの状態よりかなり高速化することができる場合があります。ただしインデックスを貼る対象はなんでもいいというものではなく、どんなSQL文を多用する予定であるかを考え、実行計画を確認しながらきちんと検討する必要があります。
+
+[MySQLでインデックスの追加・確認・削除を行う方法 | サービス | プロエンジニア](https://proengineer.internous.co.jp/content/columnfeature/6818)
+
+- PRIMARY KEY
+  - インデックスじゃない、重複不可
+- UNIQUE KEY
+  - インデックスである、重複不可
+- KEY
+  - インデックスである、重複できる
+
+[プライマリキーとインデックスの違い - bi_naの日記](https://bi-na.hatenadiary.org/entry/20120218/1329530104)
+[UNIQUE制約(ユニーク制約を設定する) | MySQLの使い方](https://www.dbonline.jp/mysql/table/index9.html)
+
+## 外部キー制約
+
+```sql
+-- 書き方の例
+FOREIGN KEY `item_id` (`item_id`) REFERENCES `items`(`id`) ON DELETE CASCADE
+```
+
+この時、itemsテーブルのidカラムにUNSIGNEDが設定してあり、item_idカラムにUNSIGNED(符号なし)がないとエラーになる。
+
+[FOREIGN KEY制約(外部キー制約を設定する) | MySQLの使い方](https://www.dbonline.jp/mysql/table/index11.html)
+
+[MySQL/SQL/外部キー/外部キーを無視してテーブルを更新する - yanor.net/wiki](https://yanor.net/wiki/?MySQL/SQL/%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC/%E5%A4%96%E9%83%A8%E3%82%AD%E3%83%BC%E3%82%92%E7%84%A1%E8%A6%96%E3%81%97%E3%81%A6%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B)
