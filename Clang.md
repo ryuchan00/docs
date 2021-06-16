@@ -131,3 +131,29 @@ int main() {
 ```
 
 [ファイルへの出力](https://ylb.jp/2006b/proc/fileio/fileoutput.html)
+
+## 簡単な構造体
+
+
+```c
+#include <stdio.h>
+
+struct Physical
+{
+    int number;
+    int height;
+    int weight;
+};
+
+int main(void)
+{
+    struct Physical pysical[10] =
+    {
+        {1,168,60}
+    };
+    printf("%d %d %d\n", pysical[0].number, pysical[0].height, pysical[0].weight);
+    // 1 168 60
+    return 0;
+}
+
+```
