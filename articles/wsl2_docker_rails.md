@@ -1,3 +1,11 @@
+---
+title: "WSL2+Docker+Rails+PostgreSQL での環境構築"
+emoji: "😸"
+type: "tech"
+topics: ["Docker", "Rails", "WSL2",] # タグ。["markdown", "rust", "aws"]のように指定する
+published: true
+---
+
 # WSL2+Docker+Rails+PostgreSQL での環境構築
 
 ## WSL2の導入
