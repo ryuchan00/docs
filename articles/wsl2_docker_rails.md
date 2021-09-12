@@ -20,6 +20,8 @@ sudo apt-get install zsh
 
 oh-my-zsh もインストールした。[^1]
 
+[^1]: https://ohmyz.sh/
+
 ```
  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
  ```
@@ -27,6 +29,8 @@ oh-my-zsh もインストールした。[^1]
 ## pecoの導入
 
 pecoを導入する。[^2] (本当はv0.5.10にすればよかった。)
+
+[^2]https://qiita.com/jagio/items/7b020df50c4b1bdc6ad0
 
 ```
 # 以下のページから最新バージョンをwget
@@ -61,6 +65,9 @@ bindkey '^R' peco-select-history
 ## Dockerのインストール
 
 https://hub.docker.com/editions/community/docker-ce-desktop-windows/ よりDocker Desktopをインストールした。[^3]そのあとに [ここのとおり](https://docs.docker.com/desktop/windows/wsl/#install) 「Use WSL 2 based engine」にチェックをした。また、WLSでDockerを使用できるように、Settings->Resources->WSL INTEGRATIONで 「Enable integration with my default WSL distro」にチェックをした。また自分の使用しているディストリビューションを有効にしておく。
+
+
+[^3]https://docs.docker.com/desktop/windows/wsl/
 
 ## Railsのコンテナをたてる
 
@@ -174,7 +181,4 @@ $ docker-compose up
 
 `localhost:3000` にアクセスして、Railsのスタートページが見れた。
 
-[^1][Oh My Zsh - a delightful & open source framework for Zsh](https://ohmyz.sh/)
-[^2][Ubuntu[](url)にpecoを導入する(for bash) (for fish) - Qiita](https://qiita.com/jagio/items/7b020df50c4b1bdc6ad0)
-[^3][Docker Desktop WSL 2 backend | Docker Documentation](https://docs.docker.com/desktop/windows/wsl/)
-[^4][クィックスタート: Compose と Rails | Docker ドキュメント](https://matsuand.github.io/docs.docker.jp.onthefly/samples/rails/)
+[^4]https://matsuand.github.io/docs.docker.jp.onthefly/samples/rails/
