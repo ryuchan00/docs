@@ -38,3 +38,14 @@ WslRegisterDistribution failed with error: 0x800701bc
 
 これで動くようになった。
 ```
+
+## RubyMineの設定
+
+コマンドラインでUbuntuからWindowsのRubyMineを参照したいときは、エイリアスを張る。
+
+[コマンドラインインターフェース | RubyMine](https://pleiades.io/help/ruby/working-with-the-ide-features-from-command-line.html#standalone)
+
+```
+alias rubymine='/mnt/c/Program\ Files/JetBrains/RubyMine\ 2021.2.2/bin/rubymine64.exe'
+rubymine .
+```
