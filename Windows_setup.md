@@ -46,6 +46,7 @@ WslRegisterDistribution failed with error: 0x800701bc
 [コマンドラインインターフェース | RubyMine](https://pleiades.io/help/ruby/working-with-the-ide-features-from-command-line.html#standalone)
 
 ```
-alias rubymine='/mnt/c/Program\ Files/JetBrains/RubyMine\ 2021.2.2/bin/rubymine64.exe'
+echo "alias rubymine='/mnt/c/Program\ Files/JetBrains/RubyMine\ 2021.2.2/bin/rubymine64.exe'"  >> ~/.zshrc
+# プロジェクトルートに移動する
 rubymine .
 ```
